@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Outfit:wght@300;400;500;700&family=Pinyon+Script&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-royal-sand text-royal-slate font-sans antialiased overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass {
+    @apply backdrop-blur-md bg-white/30 border border-white/20 shadow-lg;
+  }
+
+  .wave-pattern {
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(160, 196, 255, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(255, 200, 221, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 50% 20%, rgba(168, 230, 207, 0.1) 0%, transparent 40%);
+    background-color: #FDFCF0;
+  }
+
+  .sand-texture {
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(194, 154, 107, 0.05) 2px, rgba(194, 154, 107, 0.05) 4px);
+  }
+
+  @keyframes wave {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-wave {
+    animation: wave 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-15px) rotate(2deg);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+}
