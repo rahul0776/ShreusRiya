@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import logoImg from '../media/logo.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -41,9 +42,13 @@ const Navbar = () => {
             <div className="container mx-auto px-6 flex justify-between items-center">
                 <button
                     onClick={scrollToTop}
-                    className="text-2xl font-script text-royal-slate hover:text-royal-gold transition-colors cursor-pointer"
+                    className="flex items-center hover:opacity-80 transition-opacity cursor-pointer"
                 >
-                    Riya & Shreus
+                    <img
+                        src={logoImg}
+                        alt="S&R Logo"
+                        className="h-16 md:h-20 w-auto"
+                    />
                 </button>
 
                 {/* Desktop Menu */}

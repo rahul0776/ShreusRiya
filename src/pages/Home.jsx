@@ -4,6 +4,8 @@ import { Calendar, MapPin, Plane, Train, Car, Sparkles, Mail, Phone } from 'luci
 import Marquee from '../components/Marquee';
 import BeachDecor from '../components/BeachDecor';
 import Countdown from '../components/Countdown';
+import heroImg from '../media/homepage2.JPG';
+import itineraryImg from '../media/Itinerary.png';
 
 const Home = () => {
     const scrollToSection = (id) => {
@@ -36,36 +38,28 @@ const Home = () => {
 
     const events = [
         {
-            name: 'Devkarya',
-            date: 'February 7, 2026',
-            theme: 'Traditional Yellow',
-            colors: ['#FFEAA7', '#FDD835', '#F9CA24'],
-            description: 'A traditional ceremony welcoming new beginnings. Dress in vibrant yellows and golds.',
-            suggestions: 'Sarees, Kurtas, Lehengas in yellow hues with gold embellishments'
+            name: 'Haldi',
+            date: 'February 8, 2026',
+            theme: 'Vibrant Hues in Semi-Traditional',
+            colors: ['#ce006c', '#ef671d', '#fbaf03', '#f478af'],
+            description: 'A vibrant celebration. Women: Palazzo, Lehenga, Sharara | Men: Kurta Pajamas, Nehru Jacket',
+            suggestions: 'Vibrant Hues in Semi-Traditional'
         },
         {
             name: 'Sangeet',
             date: 'February 7, 2026 (Evening)',
-            theme: 'Royal Purple & Gold',
-            colors: ['#9B59B6', '#8E44AD', '#D4AF37'],
-            description: 'An evening of music, dance, and celebration. Dress in regal purples with gold accents.',
-            suggestions: 'Indo-Western outfits, Anarkalis, Sherwanis in purple and gold'
+            theme: 'Glitz and Glam in Indo-Western',
+            colors: ['#063f90', '#010101', '#D4AF37', '#C0C0C0'],
+            description: 'An evening of music and dance. Women: Western gowns, Cocktail Sarees | Men: Indo Western Jackets, Jodhpuri',
+            suggestions: 'Glitz and Glam in Indo-Western'
         },
         {
-            name: 'Mehendi',
-            date: 'February 8, 2026',
-            theme: 'Fresh Greens & Florals',
-            colors: ['#A8E6CF', '#56C596', '#FFD3B6'],
-            description: 'A daytime celebration of henna art. Opt for comfortable, floral, and pastel green attire.',
-            suggestions: 'Light cotton sarees, Palazzo suits, Floral prints'
-        },
-        {
-            name: 'Marriage Day',
+            name: 'Wedding',
             date: 'February 8, 2026 (Evening)',
-            theme: 'Elegant Pastels',
-            colors: ['#FFC8DD', '#A0C4FF', '#FDFCF0'],
-            description: 'The main ceremony. Dress in soft pastels - pinks, blues, creams. Formal and elegant.',
-            suggestions: 'Designer sarees, Lehengas, Formal suits in pastel shades'
+            theme: 'Indian Traditional in Hues of Pastel',
+            colors: ['#d3e8fa', '#d3cbe3', '#fed3cf', '#c9dbba', '#fef8ba'],
+            description: 'The main ceremony. Women: Lehenga, Sarees | Men: Sherwani, Jodhpuri',
+            suggestions: 'Indian Traditional in Hues of Pastel'
         }
     ];
 
@@ -74,16 +68,18 @@ const Home = () => {
             {/* Hero Section */}
             <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
                 <motion.div
-                    initial={{ opacity: 0, scale: 1.1 }}
+                    initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.5 }}
-                    className="absolute inset-0 z-0 bg-center bg-contain bg-no-repeat"
+                    transition={{ duration: 2 }}
+                    className="absolute inset-0 z-0"
                     style={{
-                        backgroundImage: 'url(/hero-bg.png)',
-                        backgroundPosition: 'center center'
+                        backgroundImage: `url(${heroImg})`,
+                        backgroundPosition: 'center center',
+                        backgroundSize: 'cover',
+                        backgroundRepeat: 'no-repeat'
                     }}
                 />
-                <div className="absolute inset-0 bg-royal-sand/20 backdrop-blur-[1px] z-0" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent z-0" />
 
                 {/* Beach Decorations */}
                 <motion.div
@@ -125,48 +121,44 @@ const Home = () => {
                     <BeachDecor />
                 </motion.div>
 
-                {/* Content */}
-                <div className="relative z-20 text-center px-4">
+                {/* Content - Positioned at top */}
+                <div className="absolute top-20 left-0 right-0 z-20 text-center px-4">
                     <motion.h1
-                        initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
-                        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.8 }}
-                        className="text-6xl md:text-9xl font-serif text-royal-slate mb-8 drop-shadow-lg"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        className="text-5xl md:text-7xl font-serif text-royal-slate mb-4"
                     >
                         Riya & Shreus
                     </motion.h1>
                     <motion.div
-                        initial={{ opacity: 0, y: 30, filter: 'blur(5px)' }}
-                        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.5 }}
                         className="flex flex-col items-center space-y-2"
                     >
-                        <div className="flex items-center space-x-2 text-lg md:text-xl font-sans text-royal-slate bg-white/50 px-6 py-3 rounded-full backdrop-blur-md">
-                            <Calendar className="w-5 h-5" />
+                        <div className="flex items-center space-x-2 text-base md:text-lg font-sans text-royal-slate bg-white/70 px-5 py-2 rounded-full backdrop-blur-sm shadow-sm">
+                            <Calendar className="w-4 h-4" />
                             <span>Feb 7-8, 2026</span>
                             <span className="w-1 h-1 bg-royal-slate rounded-full mx-2" />
-                            <MapPin className="w-5 h-5" />
+                            <MapPin className="w-4 h-4" />
                             <span className="hidden md:inline">Nanu Beach Resort & Spa Betalbatim</span>
                             <span className="md:hidden">Nanu Beach Resort</span>
                         </div>
                     </motion.div>
 
-                    {/* RSVP Button */}
+                </div>
+
+                {/* RSVP Button - Positioned at bottom */}
+                <div className="absolute bottom-20 left-0 right-0 z-20 text-center px-4">
                     <motion.button
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 1.2 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.7 }}
                         onClick={() => scrollToSection('rsvp')}
-                        className="mt-12 relative px-10 py-4 rounded-full bg-royal-slate text-white font-medium overflow-hidden group hover:scale-105 transition-transform duration-300 cursor-pointer"
+                        className="px-8 py-3 rounded-full bg-royal-slate text-white font-medium hover:bg-royal-slate/90 hover:scale-105 transition-all duration-300 shadow-lg cursor-pointer"
                     >
-                        <span className="relative z-10">RSVP Now</span>
-                        <div className="absolute inset-0 border border-white/20 rounded-full" />
-                        <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)] animate-spin-slow w-[200%] h-[200%] left-[-50%] top-[-50%]" />
-                        </div>
+                        RSVP Now
                     </motion.button>
                 </div>
             </section>
@@ -191,29 +183,26 @@ const Home = () => {
             <section id="itinerary" className="py-24 bg-white relative sand-texture">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="text-4xl font-serif text-royal-slate mb-12">The Wedding Itinerary</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                        {['Devkarya', 'Sangeet', 'Mehendi', 'Marriage'].map((event, i) => (
-                            <motion.div
-                                key={event}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: i * 0.2 }}
-                                className="p-8 rounded-2xl bg-royal-sand hover:shadow-xl transition-shadow cursor-pointer group relative overflow-hidden border border-transparent hover:border-royal-gold/30"
-                                onMouseMove={(e) => {
-                                    const rect = e.currentTarget.getBoundingClientRect();
-                                    e.currentTarget.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-                                    e.currentTarget.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-                                }}
-                            >
-                                <h3 className="text-2xl font-serif mb-2">{event}</h3>
-                                <p className="text-gray-600">Details coming soon...</p>
-                                <div
-                                    className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                    style={{ background: 'radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(212, 175, 55, 0.15), transparent 40%)' }}
-                                />
-                            </motion.div>
-                        ))}
+                    <div className="flex justify-center">
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                            className="relative max-w-4xl w-full"
+                        >
+                            <img
+                                src={itineraryImg}
+                                alt="Wedding Itinerary"
+                                className="w-full h-auto rounded-xl shadow-2xl border-4 border-white/50"
+                            />
+                            <div className="absolute -bottom-6 -right-6 w-24 h-24 md:w-32 md:h-32 z-10 hidden md:block animate-float" style={{ animationDelay: '2s' }}>
+                                <BeachDecor />
+                            </div>
+                            <div className="absolute -top-6 -left-6 w-24 h-24 md:w-32 md:h-32 z-10 hidden md:block transform scale-x-[-1] animate-float">
+                                <BeachDecor />
+                            </div>
+                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -271,10 +260,10 @@ const Home = () => {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Wardrobe Section */}
-            <section id="wardrobe" className="py-20 bg-white">
+            < section id="wardrobe" className="py-20 bg-white" >
                 <div className="container mx-auto px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -350,10 +339,10 @@ const Home = () => {
                         </ul>
                     </motion.div>
                 </div>
-            </section>
+            </section >
 
             {/* RSVP Section */}
-            <section id="rsvp" className="py-20 bg-gradient-to-br from-royal-blue/10 to-royal-rose/10">
+            < section id="rsvp" className="py-20 bg-gradient-to-br from-royal-blue/10 to-royal-rose/10" >
                 <div className="container mx-auto px-6 max-w-2xl">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -402,10 +391,10 @@ const Home = () => {
                         </form>
                     </motion.div>
                 </div>
-            </section>
+            </section >
 
             {/* Contact Section */}
-            <section id="contact" className="py-20 bg-royal-sand">
+            < section id="contact" className="py-20 bg-royal-sand" >
                 <div className="container mx-auto px-6 max-w-4xl">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -456,18 +445,18 @@ const Home = () => {
                         </motion.div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* Marquee Section */}
-            <section className="py-16 bg-white">
+            < section className="py-16 bg-white" >
                 <h3 className="text-center text-2xl font-serif mb-8 text-royal-slate/60">With Love From</h3>
                 <Marquee speed="slow">
                     {['Family', 'Friends', 'Colleagues', 'Best Wishes', 'Blessings', 'Love', 'Joy', 'Happiness'].map((text, i) => (
                         <span key={i} className="text-4xl font-script text-royal-gold/80 mx-8">{text}</span>
                     ))}
                 </Marquee>
-            </section>
-        </div>
+            </section >
+        </div >
     );
 };
 
