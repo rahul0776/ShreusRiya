@@ -71,12 +71,9 @@ const Home = () => {
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 2 }}
-                    className="absolute inset-0 z-0"
+                    className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-[55%_center] md:bg-center"
                     style={{
-                        backgroundImage: `url(${heroImg})`,
-                        backgroundPosition: 'center center',
-                        backgroundSize: 'cover',
-                        backgroundRepeat: 'no-repeat'
+                        backgroundImage: `url(${heroImg})`
                     }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent z-0" />
