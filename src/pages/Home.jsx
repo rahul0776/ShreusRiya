@@ -91,7 +91,7 @@ const Home = () => {
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 2 }}
-                    className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-center md:bg-center"
+                    className="absolute inset-0 z-0 bg-cover bg-no-repeat"
                     style={{
                         backgroundImage: `url(${heroImg})`,
                         backgroundPosition: 'center',
@@ -492,26 +492,105 @@ const Home = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="mt-12 bg-white rounded-3xl p-8 md:p-12 border border-royal-gold/30"
+                        className="mt-12 bg-white rounded-3xl p-8 md:p-12 border border-royal-gold/30 shadow-lg"
                     >
-                        <h3 className="text-2xl font-serif text-royal-slate mb-6 flex items-center gap-3">
-                            <Sparkles className="w-7 h-7 text-royal-gold" />
-                            General Guidelines
+                        <h3 className="text-3xl font-serif text-royal-slate mb-8 text-center">
+                            <Sparkles className="w-8 h-8 text-royal-gold inline-block mr-3" />
+                            General Information
                         </h3>
-                        <ul className="space-y-3 text-gray-700">
-                            <li className="flex items-start">
-                                <span className="text-royal-gold mr-3">•</span>
-                                <span>The venue is beachside, so consider comfortable footwear for outdoor events.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-royal-gold mr-3">•</span>
-                                <span>Goa weather in February is warm and pleasant. Light, breathable fabrics are recommended.</span>
-                            </li>
-                            <li className="flex items-start">
-                                <span className="text-royal-gold mr-3">•</span>
-                                <span>Accessories: Feel free to add your personal touch while staying within the color themes.</span>
-                            </li>
-                        </ul>
+                        
+                        {/* 07th February Section */}
+                        <div className="mb-8">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-12 h-12 rounded-full bg-royal-gold/10 flex items-center justify-center">
+                                    <Calendar className="w-6 h-6 text-royal-gold" />
+                                </div>
+                                <h4 className="text-2xl font-serif text-royal-slate">07th February</h4>
+                            </div>
+                            
+                            <div className="space-y-6 pl-4 border-l-4 border-royal-gold/30 ml-6">
+                                <div className="bg-royal-blue/5 rounded-xl p-6">
+                                    <div className="flex items-start gap-3 mb-3">
+                                        <Plane className="w-5 h-5 text-royal-gold mt-1 flex-shrink-0" />
+                                        <div>
+                                            <h5 className="text-lg font-semibold text-royal-slate mb-2">By Air</h5>
+                                            <p className="text-gray-700 leading-relaxed">
+                                                The Nanu Beach Resort & Spa is about <span className="font-semibold text-royal-slate">40 minutes</span> away from the Goa Dabolim International Airport and is <span className="font-semibold text-royal-slate">1.15 hours</span> away from Manohar International Airport (MOPA), Goa.
+                                            </p>
+                                            <p className="text-gray-700 mt-3 leading-relaxed">
+                                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Riya & Shreus WEDDING"</span>. They will help you with transportation.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="bg-royal-blue/5 rounded-xl p-6">
+                                    <div className="flex items-start gap-3 mb-3">
+                                        <Train className="w-5 h-5 text-royal-gold mt-1 flex-shrink-0" />
+                                        <div>
+                                            <h5 className="text-lg font-semibold text-royal-slate mb-2">By Train</h5>
+                                            <p className="text-gray-700 leading-relaxed">
+                                                The Nanu Beach Resort & Spa is about <span className="font-semibold text-royal-slate">20 minutes</span> away from the Madgaon Railway Station.
+                                            </p>
+                                            <p className="text-gray-700 mt-3 leading-relaxed">
+                                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Riya & Shreus WEDDING"</span>. They will help you with transportation.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* 09th February Section */}
+                        <div className="mb-8">
+                            <div className="flex items-center gap-3 mb-6">
+                                <div className="w-12 h-12 rounded-full bg-royal-gold/10 flex items-center justify-center">
+                                    <Calendar className="w-6 h-6 text-royal-gold" />
+                                </div>
+                                <h4 className="text-2xl font-serif text-royal-slate">09th February</h4>
+                            </div>
+                            
+                            <div className="bg-royal-blue/5 rounded-xl p-6 ml-6 border-l-4 border-royal-gold/30">
+                                <p className="text-gray-700 leading-relaxed">
+                                    There will be transportation from the resort to the airport and station at periodic intervals.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Important Notice */}
+                        <div className="bg-gradient-to-br from-royal-gold/10 to-royal-rose/10 rounded-2xl p-6 md:p-8 border-2 border-royal-gold/40 mt-8">
+                            <div className="flex items-start gap-4 mb-6">
+                                <div className="w-10 h-10 rounded-full bg-royal-gold flex items-center justify-center flex-shrink-0">
+                                    <span className="text-white font-bold text-lg">!</span>
+                                </div>
+                                <div>
+                                    <h4 className="text-xl font-semibold text-royal-slate mb-2">Important - Submit by 30th December</h4>
+                                    <p className="text-gray-700 mb-4">Please send us the following details:</p>
+                                </div>
+                            </div>
+                            
+                            <div className="space-y-4 ml-14">
+                                <div className="flex items-start gap-3">
+                                    <div className="w-8 h-8 rounded-full bg-royal-gold text-white flex items-center justify-center font-bold flex-shrink-0">
+                                        1
+                                    </div>
+                                    <div>
+                                        <h5 className="font-semibold text-royal-slate text-lg mb-1">Travel Tickets</h5>
+                                        <p className="text-gray-600">For arranging transport to & from the resort on 07th & 09th Feb.</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="flex items-start gap-3">
+                                    <div className="w-8 h-8 rounded-full bg-royal-gold text-white flex items-center justify-center font-bold flex-shrink-0">
+                                        2
+                                    </div>
+                                    <div>
+                                        <h5 className="font-semibold text-royal-slate text-lg mb-1">PAN/Aadhar Copy</h5>
+                                        <p className="text-gray-600">For pre-check-ins at the resort.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </section >
