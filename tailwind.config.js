@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'royal-sand': '#FDFCF0',
+  'royal-sand': '#F3EEE6',
         'royal-slate': '#2C3E50',
         'royal-gold': '#D4AF37',
         'royal-blue': '#A0C4FF',

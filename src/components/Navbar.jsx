@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import logoImg from '../media/logo.png';
+import logoImg from '../media/IMG_6657.png';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ const Navbar = () => {
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
             setIsOpen(false);
-        }
+        };
     };
 
     const scrollToTop = () => {
@@ -47,7 +47,7 @@ const Navbar = () => {
                     <img
                         src={logoImg}
                         alt="S&R Logo"
-                        className="h-16 md:h-20 w-auto"
+                        className={`transition-all duration-300 w-auto ${scrolled ? 'h-12 md:h-14 lg:h-16' : 'h-24 md:h-32 lg:h-40'}`}
                     />
                 </button>
 

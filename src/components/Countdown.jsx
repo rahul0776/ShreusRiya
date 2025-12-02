@@ -56,9 +56,7 @@ const Countdown = () => {
                     <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-4">
                         Counting Down to Forever
                     </h2>
-                    <p className="text-xl text-gray-600 mb-12">The big day is approaching!</p>
-
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto mt-12">
                         {timeUnits.map((unit, index) => (
                             <motion.div
                                 key={unit.label}
@@ -77,16 +75,6 @@ const Countdown = () => {
                             </motion.div>
                         ))}
                     </div>
-
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.5 }}
-                        className="mt-12 text-2xl md:text-3xl font-script text-royal-gold"
-                    >
-                        February 8th, 2026 at 11:00 AM IST
-                    </motion.p>
                 </motion.div>
             </div>
         </section>

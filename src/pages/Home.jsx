@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Plane, Train, Car, Sparkles, Mail, Phone } from 'lucide-react';
 import Marquee from '../components/Marquee';
-import BeachDecor from '../components/BeachDecor';
 import Countdown from '../components/Countdown';
 import heroImg from '../media/homepage2.JPG';
 import itineraryImg from '../media/Itinerary.png';
+import haldiImg from '../media/haldi.png';
+import sangeetImg from '../media/sangeet.png';
+import weddingImg from '../media/wedding.png';
 
 const Home = () => {
+    const [flippedCards, setFlippedCards] = useState({});
+
+    const handleFlip = (index) => {
+        setFlippedCards(prev => ({
+            ...prev,
+            [index]: !prev[index]
+        }));
+    };
+
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
         if (element) {
@@ -17,22 +28,28 @@ const Home = () => {
 
     const transportOptions = [
         {
+            id: 'air',
             icon: Plane,
             title: 'By Air',
             description: 'Fly into Goa International Airport (Dabolim)',
-            details: 'The airport is approximately 30 km from the venue. Taxis and pre-booked cabs are available.'
+            details: 'The airport is approximately 30 km from the venue. Taxis and pre-booked cabs are available.',
+            schedule: [
+                { airline: 'Indigo', dep: 'Mumbai(BOM)', arr: 'Goa(Dabolim)', date: '07/02/2026', depTime: '04:20', arrTime: '05:30' },
+                { airline: 'Air India', dep: 'Mumbai(BOM)', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '05:10', arrTime: '06:20' },
+                { airline: 'Indigo', dep: 'Navi Mumbai(NMI)', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '12:45', arrTime: '13:45' }
+            ]
         },
         {
+            id: 'train',
             icon: Train,
             title: 'By Train',
             description: 'Arrive at Madgaon Railway Station',
-            details: 'Madgaon is the main railway station in South Goa, well-connected to major cities.'
-        },
-        {
-            icon: Car,
-            title: 'By Road',
-            description: 'Drive along the scenic coastal highways',
-            details: 'Goa is connected via NH66. Self-drive and hired cars are excellent options.'
+            details: 'Madgaon is the main railway station in South Goa, well-connected to major cities.',
+            schedule: [
+                { name: 'Nzm Mao Rajdani', dep: 'Panvel', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '22:57', arrTime: '07:30' },
+                { name: 'Mangaluru Exp', dep: 'Mumbai CSMT', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '21:54', arrTime: '07:30' },
+                { name: 'Goa Express', dep: 'Pune', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '17:10', arrTime: '05:40' }
+            ]
         }
     ];
 
@@ -43,7 +60,8 @@ const Home = () => {
             theme: 'Vibrant Hues in Semi-Traditional',
             colors: ['#ce006c', '#ef671d', '#fbaf03', '#f478af'],
             description: 'A vibrant celebration. Women: Palazzo, Lehenga, Sharara | Men: Kurta Pajamas, Nehru Jacket',
-            suggestions: 'Vibrant Hues in Semi-Traditional'
+            suggestions: 'Vibrant Hues in Semi-Traditional',
+            image: haldiImg
         },
         {
             name: 'Sangeet',
@@ -51,7 +69,8 @@ const Home = () => {
             theme: 'Glitz and Glam in Indo-Western',
             colors: ['#063f90', '#010101', '#D4AF37', '#C0C0C0'],
             description: 'An evening of music and dance. Women: Western gowns, Cocktail Sarees | Men: Indo Western Jackets, Jodhpuri',
-            suggestions: 'Glitz and Glam in Indo-Western'
+            suggestions: 'Glitz and Glam in Indo-Western',
+            image: sangeetImg
         },
         {
             name: 'Wedding',
@@ -59,64 +78,24 @@ const Home = () => {
             theme: 'Indian Traditional in Hues of Pastel',
             colors: ['#d3e8fa', '#d3cbe3', '#fed3cf', '#c9dbba', '#fef8ba'],
             description: 'The main ceremony. Women: Lehenga, Sarees | Men: Sherwani, Jodhpuri',
-            suggestions: 'Indian Traditional in Hues of Pastel'
+            suggestions: 'Indian Traditional in Hues of Pastel',
+            image: weddingImg
         }
     ];
 
     return (
-        <div className="min-h-screen pt-16 wave-pattern">
+        <div className="min-h-screen wave-pattern">
             {/* Hero Section */}
-            <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+            <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
                 <motion.div
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 2 }}
-                    className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-[55%_center] md:bg-center"
+                    className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-center"
                     style={{
                         backgroundImage: `url(${heroImg})`
                     }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-transparent z-0" />
-
-                {/* Beach Decorations */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0, rotate: -20 }}
-                    animate={{ opacity: 0.7, scale: 1, rotate: 0 }}
-                    transition={{ duration: 1.2, delay: 0.6 }}
-                    className="absolute bottom-6 left-6 w-24 h-24 md:w-32 md:h-32 z-10 animate-float"
-                >
-                    <BeachDecor />
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, scale: 0, rotate: 20 }}
-                    animate={{ opacity: 0.7, scale: 1, rotate: 0 }}
-                    transition={{ duration: 1.2, delay: 0.8 }}
-                    className="absolute bottom-6 right-6 w-24 h-24 md:w-32 md:h-32 z-10 transform scale-x-[-1] animate-float"
-                    style={{ animationDelay: '2s' }}
-                >
-                    <BeachDecor />
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 0.6, scale: 1 }}
-                    transition={{ duration: 1, delay: 1 }}
-                    className="absolute top-24 left-12 w-20 h-20 md:w-24 md:h-24 z-10 hidden lg:block animate-float"
-                    style={{ animationDelay: '1s' }}
-                >
-                    <BeachDecor />
-                </motion.div>
-
-                <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 0.6, scale: 1 }}
-                    transition={{ duration: 1, delay: 1.2 }}
-                    className="absolute top-24 right-12 w-20 h-20 md:w-24 md:h-24 z-10 hidden lg:block transform scale-x-[-1] animate-float"
-                    style={{ animationDelay: '3s' }}
-                >
-                    <BeachDecor />
-                </motion.div>
 
                 {/* Content - Positioned at top */}
                 <div className="absolute top-20 left-0 right-0 z-20 text-center px-4">
@@ -134,7 +113,7 @@ const Home = () => {
                         transition={{ duration: 1, delay: 0.5 }}
                         className="flex flex-col items-center space-y-2"
                     >
-                        <div className="flex items-center space-x-2 text-base md:text-lg font-sans text-royal-slate bg-white/70 px-5 py-2 rounded-full backdrop-blur-sm shadow-sm">
+                        <div className="flex items-center space-x-2 text-base md:text-lg font-sans text-royal-slate">
                             <Calendar className="w-4 h-4" />
                             <span>Feb 7-8, 2026</span>
                             <span className="w-1 h-1 bg-royal-slate rounded-full mx-2" />
@@ -177,7 +156,7 @@ const Home = () => {
             <Countdown />
 
             {/* Itinerary Section */}
-            <section id="itinerary" className="py-24 bg-white relative sand-texture">
+            <section id="itinerary" className="py-24 bg-royal-sand relative sand-texture">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="text-4xl font-serif text-royal-slate mb-12">The Wedding Itinerary</h2>
                     <div className="flex justify-center">
@@ -193,12 +172,6 @@ const Home = () => {
                                 alt="Wedding Itinerary"
                                 className="w-full h-auto rounded-xl shadow-2xl border-4 border-white/50"
                             />
-                            <div className="absolute -bottom-6 -right-6 w-24 h-24 md:w-32 md:h-32 z-10 hidden md:block animate-float" style={{ animationDelay: '2s' }}>
-                                <BeachDecor />
-                            </div>
-                            <div className="absolute -top-6 -left-6 w-24 h-24 md:w-32 md:h-32 z-10 hidden md:block transform scale-x-[-1] animate-float">
-                                <BeachDecor />
-                            </div>
                         </motion.div>
                     </div>
                 </div>
@@ -235,32 +208,89 @@ const Home = () => {
                                 <p className="text-gray-600 mt-2">Betalbatim Beach, South Goa</p>
                             </div>
                         </div>
+                        <div className="mt-6 w-full h-64 md:h-80 rounded-2xl overflow-hidden shadow-inner border border-royal-gold/20">
+                            <iframe
+                                width="100%"
+                                height="100%"
+                                id="gmap_canvas"
+                                src="https://maps.google.com/maps?q=Nanu+Beach+Resort+%26+Spa+Betalbatim&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                frameBorder="0"
+                                scrolling="no"
+                                marginHeight="0"
+                                marginWidth="0"
+                                title="Wedding Venue Location"
+                            ></iframe>
+                        </div>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                         {transportOptions.map((option, index) => (
-                            <motion.div
-                                key={option.title}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.6, delay: index * 0.15 }}
-                                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border border-transparent hover:border-royal-gold/30 group"
-                            >
-                                <div className="p-4 bg-royal-blue/10 rounded-full w-fit mb-4 group-hover:bg-royal-gold/20 transition-colors">
-                                    <option.icon className="w-10 h-10 text-royal-gold" />
-                                </div>
-                                <h3 className="text-2xl font-serif text-royal-slate mb-2">{option.title}</h3>
-                                <p className="text-lg font-medium text-gray-700 mb-3">{option.description}</p>
-                                <p className="text-gray-600">{option.details}</p>
-                            </motion.div>
+                            <div key={option.title} className="h-[400px] perspective-1000">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 30 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6, delay: index * 0.15 }}
+                                    animate={{ rotateY: flippedCards[index] ? 180 : 0 }}
+                                    className="relative w-full h-full transition-all duration-500 preserve-3d cursor-pointer"
+                                    onClick={() => handleFlip(index)}
+                                    style={{ transformStyle: 'preserve-3d' }}
+                                >
+                                    {/* Front Side */}
+                                    <div className="absolute inset-0 backface-hidden bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl border border-transparent hover:border-royal-gold/30 group flex flex-col items-center justify-center text-center" style={{ backfaceVisibility: 'hidden' }}>
+                                        <div className="p-4 bg-royal-blue/10 rounded-full w-fit mb-6 group-hover:bg-royal-gold/20 transition-colors">
+                                            <option.icon className="w-12 h-12 text-royal-gold" />
+                                        </div>
+                                        <h3 className="text-3xl font-serif text-royal-slate mb-4">{option.title}</h3>
+                                        <p className="text-lg font-medium text-gray-700 mb-4">{option.description}</p>
+                                        <p className="text-gray-600 mb-6">{option.details}</p>
+                                        <p className="text-royal-gold font-medium text-sm uppercase tracking-wider mt-auto">Click to know more</p>
+                                    </div>
+
+                                    {/* Back Side */}
+                                    <div
+                                        className="absolute inset-0 backface-hidden bg-white rounded-2xl p-6 shadow-xl border border-royal-gold/30 overflow-y-auto"
+                                        style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
+                                    >
+                                        <h3 className="text-xl font-serif text-royal-slate mb-4 text-center sticky top-0 bg-white pb-2 border-b border-gray-100">{option.title} Schedule</h3>
+                                        <div className="overflow-x-auto">
+                                            <table className="w-full text-sm text-left">
+                                                <thead className="text-xs text-gray-500 uppercase bg-gray-50">
+                                                    <tr>
+                                                        <th className="px-2 py-2">{option.id === 'air' ? 'Airline' : 'Train'}</th>
+                                                        <th className="px-2 py-2">Dep</th>
+                                                        <th className="px-2 py-2">Arr</th>
+                                                        <th className="px-2 py-2">Date</th>
+                                                        <th className="px-2 py-2">Time</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {option.schedule.map((item, i) => (
+                                                        <tr key={i} className="border-b border-gray-100">
+                                                            <td className="px-2 py-2 font-medium text-royal-slate">{item.airline || item.name}</td>
+                                                            <td className="px-2 py-2 text-gray-600">{item.dep}</td>
+                                                            <td className="px-2 py-2 text-gray-600">{item.arr}</td>
+                                                            <td className="px-2 py-2 text-gray-600">{item.date}</td>
+                                                            <td className="px-2 py-2 text-gray-600">
+                                                                <div>D: {item.depTime}</div>
+                                                                <div>A: {item.arrTime}</div>
+                                                            </td>
+                                                        </tr>
+                                                    ))}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p className="text-center text-xs text-gray-400 mt-4">Click to flip back</p>
+                                    </div>
+                                </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section >
 
             {/* Wardrobe Section */}
-            < section id="wardrobe" className="py-20 bg-white" >
+            < section id="wardrobe" className="py-20 bg-royal-sand" >
                 <div className="container mx-auto px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -281,10 +311,13 @@ const Home = () => {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                                className="bg-royal-sand rounded-3xl overflow-hidden shadow-xl border border-royal-gold/20 hover:shadow-2xl transition-shadow"
+                                className="bg-white rounded-3xl overflow-hidden shadow-xl border border-royal-gold/20 hover:shadow-2xl transition-shadow"
                             >
                                 <div className="flex flex-col md:flex-row">
-                                    <div className="md:w-1/3 p-8 bg-gradient-to-br from-white to-royal-sand/50 flex flex-col justify-center">
+                                    <div className="md:w-1/3 p-4 bg-white flex items-center justify-center border-r border-royal-gold/10">
+                                        <img src={event.image} alt={event.name} className="w-full h-64 object-cover rounded-2xl" />
+                                    </div>
+                                    <div className="md:w-2/3 p-8 bg-white flex flex-col justify-center">
                                         <div className="flex items-center gap-2 mb-4">
                                             <Sparkles className="w-6 h-6 text-royal-gold" />
                                             <h3 className="text-3xl font-serif text-royal-slate">{event.name}</h3>
@@ -296,8 +329,6 @@ const Home = () => {
                                             ))}
                                         </div>
                                         <p className="text-lg font-medium text-royal-gold mb-2">{event.theme}</p>
-                                    </div>
-                                    <div className="md:w-2/3 p-8 flex flex-col justify-center bg-white">
                                         <p className="text-lg text-gray-700 mb-4">{event.description}</p>
                                         <div className="bg-royal-blue/5 rounded-xl p-4 border-l-4 border-royal-gold">
                                             <p className="text-sm font-medium text-royal-slate mb-1">Outfit Suggestions:</p>
@@ -314,7 +345,7 @@ const Home = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="mt-12 bg-gradient-to-br from-royal-gold/10 to-royal-rose/10 rounded-3xl p-8 md:p-12 border border-royal-gold/30"
+                        className="mt-12 bg-white rounded-3xl p-8 md:p-12 border border-royal-gold/30"
                     >
                         <h3 className="text-2xl font-serif text-royal-slate mb-6 flex items-center gap-3">
                             <Sparkles className="w-7 h-7 text-royal-gold" />
@@ -339,7 +370,7 @@ const Home = () => {
             </section >
 
             {/* RSVP Section */}
-            < section id="rsvp" className="py-20 bg-gradient-to-br from-royal-blue/10 to-royal-rose/10" >
+            < section id="rsvp" className="py-20 bg-royal-sand" >
                 <div className="container mx-auto px-6 max-w-2xl">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -445,7 +476,7 @@ const Home = () => {
             </section >
 
             {/* Marquee Section */}
-            < section className="py-16 bg-white" >
+            < section className="py-16 bg-royal-sand" >
                 <h3 className="text-center text-2xl font-serif mb-8 text-royal-slate/60">With Love From</h3>
                 <Marquee speed="slow">
                     {['Family', 'Friends', 'Colleagues', 'Best Wishes', 'Blessings', 'Love', 'Joy', 'Happiness'].map((text, i) => (
