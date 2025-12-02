@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Plane, Train, Car, Sparkles, Mail, Phone } from 'lucide-react';
-import Marquee from '../components/Marquee';
+import { Calendar, MapPin, Plane, Train, Sparkles, User } from 'lucide-react';
 import Countdown from '../components/Countdown';
 import heroImg from '../media/homepage2.JPG';
-import itineraryImg from '../media/Itinerary.png';
 import haldiImg from '../media/haldi.png';
 import sangeetImg from '../media/sangeet.png';
 import weddingImg from '../media/wedding.png';
@@ -19,20 +17,13 @@ const Home = () => {
         }));
     };
 
-    const scrollToSection = (id) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
-
     const transportOptions = [
         {
             id: 'air',
             icon: Plane,
             title: 'By Air',
-            description: 'Fly into Goa International Airport (Dabolim)',
-            details: 'The airport is approximately 30 km from the venue. Taxis and pre-booked cabs are available.',
+            description: 'Fly into Goa International Airport (Dabolim) or Manohar International Airport (MOPA)',
+            details: 'The airport is approximately 30 km from the venue.',
             schedule: [
                 { airline: 'Indigo', dep: 'Mumbai(BOM)', arr: 'Goa(Dabolim)', date: '07/02/2026', depTime: '04:20', arrTime: '05:30' },
                 { airline: 'Air India', dep: 'Mumbai(BOM)', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '05:10', arrTime: '06:20' },
@@ -56,29 +47,26 @@ const Home = () => {
     const events = [
         {
             name: 'Haldi',
-            date: 'February 8, 2026',
+            date: 'February 7, 2026',
             theme: 'Vibrant Hues in Semi-Traditional',
             colors: ['#ce006c', '#ef671d', '#fbaf03', '#f478af'],
-            description: 'A vibrant celebration. Women: Palazzo, Lehenga, Sharara | Men: Kurta Pajamas, Nehru Jacket',
-            suggestions: 'Vibrant Hues in Semi-Traditional',
+            description: 'A vibrant celebration.',
             image: haldiImg
         },
         {
             name: 'Sangeet',
-            date: 'February 7, 2026 (Evening)',
+            date: 'February 7, 2026',
             theme: 'Glitz and Glam in Indo-Western',
             colors: ['#063f90', '#010101', '#D4AF37', '#C0C0C0'],
-            description: 'An evening of music and dance. Women: Western gowns, Cocktail Sarees | Men: Indo Western Jackets, Jodhpuri',
-            suggestions: 'Glitz and Glam in Indo-Western',
+            description: 'An evening of music and dance.',
             image: sangeetImg
         },
         {
             name: 'Wedding',
-            date: 'February 8, 2026 (Evening)',
+            date: 'February 8, 2026',
             theme: 'Indian Traditional in Hues of Pastel',
             colors: ['#d3e8fa', '#d3cbe3', '#fed3cf', '#c9dbba', '#fef8ba'],
-            description: 'The main ceremony. Women: Lehenga, Sarees | Men: Sherwani, Jodhpuri',
-            suggestions: 'Indian Traditional in Hues of Pastel',
+            description: 'The main ceremony.',
             image: weddingImg
         }
     ];
@@ -126,19 +114,6 @@ const Home = () => {
                     </motion.div>
 
                 </div>
-
-                {/* RSVP Button - Positioned at bottom */}
-                <div className="absolute bottom-20 left-0 right-0 z-20 text-center px-4">
-                    <motion.button
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                        onClick={() => scrollToSection('rsvp')}
-                        className="px-8 py-3 rounded-full bg-royal-slate text-white font-medium hover:bg-royal-slate/90 hover:scale-105 transition-all duration-300 shadow-lg cursor-pointer"
-                    >
-                        RSVP Now
-                    </motion.button>
-                </div>
             </section>
 
             {/* Wave Divider */}
@@ -173,9 +148,7 @@ const Home = () => {
                     <div className="max-w-4xl mx-auto">
                         {/* Timeline Container */}
                         <div className="relative">
-                            {/* Vertical Line */}
-                            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-royal-gold/30"></div>
-
+                            
                             {/* Day 1 - Saturday */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -190,14 +163,17 @@ const Home = () => {
                                 </div>
 
                                 {/* Events for Day 1 */}
-                                <div className="space-y-6">
+                                <div className="relative space-y-6">
+                                    {/* Day Line */}
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-royal-gold/30"></div>
+                                    
                                     {[
-                                        { time: '9:00 AM', title: 'Check In', desc: 'Welcome to our celebration' },
-                                        { time: '12:00 PM', title: 'Haldi Ceremony', desc: 'Traditional turmeric ceremony' },
-                                        { time: '1:00 PM', title: 'Lunch', desc: 'Multi-cuisine buffet' },
-                                        { time: '5:00 PM', title: 'High Tea', desc: 'Evening refreshments' },
-                                        { time: '7:00 PM', title: 'Sangeet', desc: 'Music, dance & performances' },
-                                        { time: '8:00 PM', title: 'Dinner', desc: 'Lavish dinner spread' }
+                                        { time: '9:00 AM', title: 'Check In' },
+                                        { time: '12:00 PM', title: 'Haldi Ceremony' },
+                                        { time: '1:00 PM', title: 'Lunch' },
+                                        { time: '5:00 PM', title: 'High Tea' },
+                                        { time: '7:00 PM', title: 'Sangeet' },
+                                        { time: '8:00 PM', title: 'Dinner' }
                                     ].map((event, idx) => (
                                         <motion.div
                                             key={idx}
@@ -209,7 +185,6 @@ const Home = () => {
                                         >
                                             <div className={`w-5/12 ${idx % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                                                 <p className="text-lg font-semibold text-royal-slate">{event.time}</p>
-                                                <p className="text-sm text-gray-500">{event.desc}</p>
                                             </div>
                                             <div className="w-2/12 flex justify-center">
                                                 <div className="w-4 h-4 rounded-full bg-royal-gold border-4 border-white shadow-lg relative z-10"></div>
@@ -236,14 +211,17 @@ const Home = () => {
                                 </div>
 
                                 {/* Events for Day 2 */}
-                                <div className="space-y-6">
+                                <div className="relative space-y-6">
+                                    {/* Day Line */}
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-royal-gold/30"></div>
+
                                     {[
-                                        { time: '8:00 AM', title: 'Breakfast', desc: 'Morning delights' },
-                                        { time: '12:00 PM', title: 'Lunch', desc: 'Special lunch for guests' },
-                                        { time: '2:00 PM', title: 'Baraat', desc: "Groom's grand procession" },
-                                        { time: '4:00 PM', title: 'Mahurat', desc: 'Wedding ceremony begins' },
-                                        { time: '5:00 PM', title: 'High Tea', desc: 'Evening refreshments' },
-                                        { time: '7:00 PM', title: 'Dinner & Reception', desc: 'Celebration under the stars' }
+                                        { time: '8:00 AM', title: 'Breakfast' },
+                                        { time: '12:00 PM', title: 'Lunch' },
+                                        { time: '2:00 PM', title: 'Baraat' },
+                                        { time: '4:00 PM', title: 'Mahurat' },
+                                        { time: '5:00 PM', title: 'High Tea' },
+                                        { time: '7:00 PM', title: 'Dinner & Reception' }
                                     ].map((event, idx) => (
                                         <motion.div
                                             key={idx}
@@ -255,7 +233,6 @@ const Home = () => {
                                         >
                                             <div className={`w-5/12 ${idx % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                                                 <p className="text-lg font-semibold text-royal-slate">{event.time}</p>
-                                                <p className="text-sm text-gray-500">{event.desc}</p>
                                             </div>
                                             <div className="w-2/12 flex justify-center">
                                                 <div className="w-4 h-4 rounded-full bg-royal-gold border-4 border-white shadow-lg relative z-10"></div>
@@ -282,10 +259,13 @@ const Home = () => {
                                 </div>
 
                                 {/* Events for Day 3 */}
-                                <div className="space-y-6">
+                                <div className="relative space-y-6">
+                                    {/* Day Line */}
+                                    <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-royal-gold/30"></div>
+
                                     {[
-                                        { time: '8:00 AM', title: 'Breakfast', desc: 'Final breakfast together' },
-                                        { time: '12:00 PM', title: 'Checkout', desc: 'Safe travels home' }
+                                        { time: '8:00 AM', title: 'Breakfast' },
+                                        { time: '12:00 PM', title: 'Checkout' }
                                     ].map((event, idx) => (
                                         <motion.div
                                             key={idx}
@@ -297,7 +277,6 @@ const Home = () => {
                                         >
                                             <div className={`w-5/12 ${idx % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                                                 <p className="text-lg font-semibold text-royal-slate">{event.time}</p>
-                                                <p className="text-sm text-gray-500">{event.desc}</p>
                                             </div>
                                             <div className="w-2/12 flex justify-center">
                                                 <div className="w-4 h-4 rounded-full bg-royal-gold border-4 border-white shadow-lg relative z-10"></div>
@@ -310,17 +289,6 @@ const Home = () => {
                                 </div>
                             </motion.div>
                         </div>
-
-                        {/* Bottom signature */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            whileInView={{ opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.6 }}
-                            className="text-center mt-16"
-                        >
-                            <p className="text-2xl font-script text-royal-gold/80 italic">Riya & Shreus</p>
-                        </motion.div>
                     </div>
                 </div>
             </section>
@@ -336,9 +304,10 @@ const Home = () => {
                         className="text-center mb-12"
                     >
                         <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-4">Travel Guide</h2>
-                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">How to reach our venue in beautiful Goa</p>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">We look forward to celebrating with you in Goa.</p>
                     </motion.div>
 
+                    {/* Map Section */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -371,6 +340,70 @@ const Home = () => {
                         </div>
                     </motion.div>
 
+                    {/* Check-in / Check-out */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-12"
+                    >
+                        <div className="flex flex-col md:flex-row justify-center gap-8 text-royal-slate">
+                            <div className="bg-white p-6 rounded-2xl shadow-md border border-royal-gold/20">
+                                <h4 className="text-xl font-serif mb-2">CHECK-IN</h4>
+                                <p className="text-lg font-medium">Saturday, 07th February</p>
+                                <p className="text-royal-gold font-bold">10:00 AM</p>
+                            </div>
+                            <div className="bg-white p-6 rounded-2xl shadow-md border border-royal-gold/20">
+                                <h4 className="text-xl font-serif mb-2">CHECK-OUT</h4>
+                                <p className="text-lg font-medium">Monday, 09th February</p>
+                                <p className="text-royal-gold font-bold">12:00 Noon</p>
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Airport Transfer */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="bg-white rounded-3xl p-8 md:p-12 shadow-xl mb-8 border border-royal-gold/20 text-center"
+                    >
+                        <h3 className="text-3xl font-serif text-royal-slate mb-6">Airport Transfer</h3>
+                        <div className="max-w-3xl mx-auto space-y-4 text-gray-700">
+                            <p className="text-lg">
+                                The Nanu Beach Resort & Spa is about <span className="font-semibold text-royal-slate">40 minutes</span> away from the Goa Dabolim International Airport and is <span className="font-semibold text-royal-slate">1.15 hours</span> away from Manohar International Airport (MOPA), Goa.
+                            </p>
+                            <p className="text-lg">
+                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Riya & Shreus WEDDING"</span>. They will help you with transportation.
+                            </p>
+                            <p className="text-lg">
+                                There will be transportation from the resort to the airport and station at periodic intervals.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* By Train Info */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="bg-white rounded-3xl p-8 md:p-12 shadow-xl mb-12 border border-royal-gold/20 text-center"
+                    >
+                        <h3 className="text-3xl font-serif text-royal-slate mb-6">Train Transfer</h3>
+                        <div className="max-w-3xl mx-auto space-y-4 text-gray-700">
+                            <p className="text-lg">
+                                The Nanu Beach Resort & Spa is about <span className="font-semibold text-royal-slate">20 minutes</span> away from the Madgaon Railway Station.
+                            </p>
+                            <p className="text-lg">
+                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Riya & Shreus WEDDING"</span>. They will help you with transportation.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Transport Options Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                         {transportOptions.map((option, index) => (
                             <div key={option.title} className="h-[400px] perspective-1000">
@@ -476,174 +509,12 @@ const Home = () => {
                                             ))}
                                         </div>
                                         <p className="text-base font-medium text-royal-gold mb-2">{event.theme}</p>
-                                        <p className="text-sm text-gray-700 mb-3">{event.description}</p>
-                                        <div className="bg-royal-blue/5 rounded-xl p-3 border-l-4 border-royal-gold">
-                                            <p className="text-xs font-medium text-royal-slate mb-1">Outfit Suggestions:</p>
-                                            <p className="text-xs text-gray-600">{event.suggestions}</p>
-                                        </div>
+                                        <p className="text-sm text-gray-700">{event.description}</p>
                                     </div>
                                 </div>
                             </motion.div>
                         ))}
                     </div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="mt-12 bg-white rounded-3xl p-8 md:p-12 border border-royal-gold/30 shadow-lg"
-                    >
-                        <h3 className="text-3xl font-serif text-royal-slate mb-8 text-center">
-                            <Sparkles className="w-8 h-8 text-royal-gold inline-block mr-3" />
-                            General Information
-                        </h3>
-                        
-                        {/* 07th February Section */}
-                        <div className="mb-8">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-full bg-royal-gold/10 flex items-center justify-center">
-                                    <Calendar className="w-6 h-6 text-royal-gold" />
-                                </div>
-                                <h4 className="text-2xl font-serif text-royal-slate">07th February</h4>
-                            </div>
-                            
-                            <div className="space-y-6 pl-4 border-l-4 border-royal-gold/30 ml-6">
-                                <div className="bg-royal-blue/5 rounded-xl p-6">
-                                    <div className="flex items-start gap-3 mb-3">
-                                        <Plane className="w-5 h-5 text-royal-gold mt-1 flex-shrink-0" />
-                                        <div>
-                                            <h5 className="text-lg font-semibold text-royal-slate mb-2">By Air</h5>
-                                            <p className="text-gray-700 leading-relaxed">
-                                                The Nanu Beach Resort & Spa is about <span className="font-semibold text-royal-slate">40 minutes</span> away from the Goa Dabolim International Airport and is <span className="font-semibold text-royal-slate">1.15 hours</span> away from Manohar International Airport (MOPA), Goa.
-                                            </p>
-                                            <p className="text-gray-700 mt-3 leading-relaxed">
-                                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Riya & Shreus WEDDING"</span>. They will help you with transportation.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="bg-royal-blue/5 rounded-xl p-6">
-                                    <div className="flex items-start gap-3 mb-3">
-                                        <Train className="w-5 h-5 text-royal-gold mt-1 flex-shrink-0" />
-                                        <div>
-                                            <h5 className="text-lg font-semibold text-royal-slate mb-2">By Train</h5>
-                                            <p className="text-gray-700 leading-relaxed">
-                                                The Nanu Beach Resort & Spa is about <span className="font-semibold text-royal-slate">20 minutes</span> away from the Madgaon Railway Station.
-                                            </p>
-                                            <p className="text-gray-700 mt-3 leading-relaxed">
-                                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Riya & Shreus WEDDING"</span>. They will help you with transportation.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 09th February Section */}
-                        <div className="mb-8">
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-full bg-royal-gold/10 flex items-center justify-center">
-                                    <Calendar className="w-6 h-6 text-royal-gold" />
-                                </div>
-                                <h4 className="text-2xl font-serif text-royal-slate">09th February</h4>
-                            </div>
-                            
-                            <div className="bg-royal-blue/5 rounded-xl p-6 ml-6 border-l-4 border-royal-gold/30">
-                                <p className="text-gray-700 leading-relaxed">
-                                    There will be transportation from the resort to the airport and station at periodic intervals.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Important Notice */}
-                        <div className="bg-gradient-to-br from-royal-gold/10 to-royal-rose/10 rounded-2xl p-6 md:p-8 border-2 border-royal-gold/40 mt-8">
-                            <div className="flex items-start gap-4 mb-6">
-                                <div className="w-10 h-10 rounded-full bg-royal-gold flex items-center justify-center flex-shrink-0">
-                                    <span className="text-white font-bold text-lg">!</span>
-                                </div>
-                                <div>
-                                    <h4 className="text-xl font-semibold text-royal-slate mb-2">Important - Submit by 30th December</h4>
-                                    <p className="text-gray-700 mb-4">Please send us the following details:</p>
-                                </div>
-                            </div>
-                            
-                            <div className="space-y-4 ml-14">
-                                <div className="flex items-start gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-royal-gold text-white flex items-center justify-center font-bold flex-shrink-0">
-                                        1
-                                    </div>
-                                    <div>
-                                        <h5 className="font-semibold text-royal-slate text-lg mb-1">Travel Tickets</h5>
-                                        <p className="text-gray-600">For arranging transport to & from the resort on 07th & 09th Feb.</p>
-                                    </div>
-                                </div>
-                                
-                                <div className="flex items-start gap-3">
-                                    <div className="w-8 h-8 rounded-full bg-royal-gold text-white flex items-center justify-center font-bold flex-shrink-0">
-                                        2
-                                    </div>
-                                    <div>
-                                        <h5 className="font-semibold text-royal-slate text-lg mb-1">PAN/Aadhar Copy</h5>
-                                        <p className="text-gray-600">For pre-check-ins at the resort.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </section >
-
-            {/* RSVP Section */}
-            < section id="rsvp" className="py-20 bg-royal-sand" >
-                <div className="container mx-auto px-6 max-w-2xl">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-center mb-12"
-                    >
-                        <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-4">RSVP</h2>
-                        <p className="text-xl text-gray-600">We'd love to have you join us!</p>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="bg-white rounded-3xl p-8 md:p-12 shadow-2xl"
-                    >
-                        <form className="space-y-6">
-                            <div>
-                                <label className="block text-gray-700 font-medium mb-2">Full Name *</label>
-                                <input type="text" className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-royal-gold focus:outline-none focus:ring-2 focus:ring-royal-gold/20 transition-colors" placeholder="Your name" />
-                            </div>
-                            <div>
-                                <label className="block text-gray-700 font-medium mb-2">Email *</label>
-                                <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-royal-gold focus:outline-none focus:ring-2 focus:ring-royal-gold/20 transition-colors" placeholder="your@email.com" />
-                            </div>
-                            <div>
-                                <label className="block text-gray-700 font-medium mb-2">Number of Guests *</label>
-                                <select className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-royal-gold focus:outline-none focus:ring-2 focus:ring-royal-gold/20 transition-colors">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5+</option>
-                                </select>
-                            </div>
-                            <div>
-                                <label className="block text-gray-700 font-medium mb-2">Special Requests</label>
-                                <textarea className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-royal-gold focus:outline-none focus:ring-2 focus:ring-royal-gold/20 transition-colors" rows="4" placeholder="Dietary restrictions, accessibility needs, etc."></textarea>
-                            </div>
-                            <button type="submit" className="w-full bg-royal-slate text-white px-8 py-4 rounded-full font-medium hover:bg-royal-slate/90 hover:scale-105 transition-all duration-300 shadow-lg">
-                                Submit RSVP
-                            </button>
-                        </form>
-                    </motion.div>
                 </div>
             </section >
 
@@ -671,11 +542,11 @@ const Home = () => {
                         >
                             <div className="flex items-start gap-4">
                                 <div className="p-3 bg-royal-gold/10 rounded-full">
-                                    <Mail className="w-6 h-6 text-royal-gold" />
+                                    <User className="w-6 h-6 text-royal-gold" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-serif text-royal-slate mb-2">Email</h3>
-                                    <p className="text-gray-600">wedding@riyashreus.com</p>
+                                    <h3 className="text-xl font-serif text-royal-slate mb-2">Ujval Lotlikar</h3>
+                                    <p className="text-gray-600">+91 9920493309</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -689,26 +560,16 @@ const Home = () => {
                         >
                             <div className="flex items-start gap-4">
                                 <div className="p-3 bg-royal-gold/10 rounded-full">
-                                    <Phone className="w-6 h-6 text-royal-gold" />
+                                    <User className="w-6 h-6 text-royal-gold" />
                                 </div>
                                 <div>
-                                    <h3 className="text-xl font-serif text-royal-slate mb-2">Phone</h3>
-                                    <p className="text-gray-600">+91 XXXXX XXXXX</p>
+                                    <h3 className="text-xl font-serif text-royal-slate mb-2">Rajkumar Patil</h3>
+                                    <p className="text-gray-600">+91 9860092975</p>
                                 </div>
                             </div>
                         </motion.div>
                     </div>
                 </div>
-            </section >
-
-            {/* Marquee Section */}
-            < section className="py-16 bg-royal-sand" >
-                <h3 className="text-center text-2xl font-serif mb-8 text-royal-slate/60">With Love From</h3>
-                <Marquee speed="slow">
-                    {['Family', 'Friends', 'Colleagues', 'Best Wishes', 'Blessings', 'Love', 'Joy', 'Happiness'].map((text, i) => (
-                        <span key={i} className="text-4xl font-script text-royal-gold/80 mx-8">{text}</span>
-                    ))}
-                </Marquee>
             </section >
         </div >
     );

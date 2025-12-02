@@ -52,7 +52,7 @@ const Navbar = () => {
                 </button>
 
                 {/* Desktop Menu */}
-                <div className="hidden md:flex space-x-8">
+                <div className="hidden md:flex space-x-8 -translate-y-4">
                     {navLinks.map((link) => (
                         <button
                             key={link.name}
@@ -62,12 +62,7 @@ const Navbar = () => {
                             {link.name}
                         </button>
                     ))}
-                    <button
-                        onClick={() => scrollToSection('rsvp')}
-                        className="px-6 py-2 rounded-full border border-royal-gold text-royal-gold hover:bg-royal-gold hover:text-white transition-all duration-300 transform hover:scale-105"
-                    >
-                        RSVP
-                    </button>
+
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -98,12 +93,7 @@ const Navbar = () => {
                                     {link.name}
                                 </button>
                             ))}
-                            <button
-                                onClick={() => scrollToSection('rsvp')}
-                                className="px-8 py-2 rounded-full bg-royal-gold text-white hover:bg-opacity-90 transition-colors"
-                            >
-                                RSVP
-                            </button>
+
                         </div>
                     </motion.div>
                 )}
