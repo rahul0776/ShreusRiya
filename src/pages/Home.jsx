@@ -91,9 +91,11 @@ const Home = () => {
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 2 }}
-                    className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-center"
+                    className="absolute inset-0 z-0 bg-cover bg-no-repeat bg-center md:bg-center"
                     style={{
-                        backgroundImage: `url(${heroImg})`
+                        backgroundImage: `url(${heroImg})`,
+                        backgroundPosition: 'center',
+                        backgroundPositionX: 'calc(50% - 50px)'
                     }}
                 />
 
