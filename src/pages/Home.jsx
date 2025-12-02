@@ -302,7 +302,7 @@ const Home = () => {
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">Dress codes and color themes for each celebration</p>
                     </motion.div>
 
-                    <div className="space-y-8">
+                    <div className="space-y-8 max-w-4xl mx-auto">
                         {events.map((event, index) => (
                             <motion.div
                                 key={event.name}
@@ -313,25 +313,25 @@ const Home = () => {
                                 className="bg-white rounded-3xl overflow-hidden shadow-xl border border-royal-gold/20 hover:shadow-2xl transition-shadow"
                             >
                                 <div className="flex flex-col md:flex-row">
-                                    <div className="md:w-1/3 p-4 bg-white flex items-center justify-center border-r border-royal-gold/10">
-                                        <img src={event.image} alt={event.name} className="w-full h-64 object-cover rounded-2xl" />
+                                    <div className="md:w-1/4 p-3 bg-white flex items-center">
+                                        <img src={event.image} alt={event.name} className="w-full h-auto" />
                                     </div>
-                                    <div className="md:w-2/3 p-8 bg-white flex flex-col justify-center">
-                                        <div className="flex items-center gap-2 mb-4">
-                                            <Sparkles className="w-6 h-6 text-royal-gold" />
-                                            <h3 className="text-3xl font-serif text-royal-slate">{event.name}</h3>
+                                    <div className="md:w-3/4 p-6 bg-white flex flex-col justify-center">
+                                        <div className="flex items-center gap-2 mb-3">
+                                            <Sparkles className="w-5 h-5 text-royal-gold" />
+                                            <h3 className="text-2xl font-serif text-royal-slate">{event.name}</h3>
                                         </div>
-                                        <p className="text-sm text-gray-600 mb-4">{event.date}</p>
-                                        <div className="flex gap-3 mb-6">
+                                        <p className="text-xs text-gray-600 mb-3">{event.date}</p>
+                                        <div className="flex gap-2 mb-4">
                                             {event.colors.map((color, i) => (
-                                                <div key={i} className="w-16 h-16 rounded-full shadow-md border-2 border-white" style={{ backgroundColor: color }} />
+                                                <div key={i} className="w-12 h-12 rounded-full shadow-md border-2 border-white" style={{ backgroundColor: color }} />
                                             ))}
                                         </div>
-                                        <p className="text-lg font-medium text-royal-gold mb-2">{event.theme}</p>
-                                        <p className="text-lg text-gray-700 mb-4">{event.description}</p>
-                                        <div className="bg-royal-blue/5 rounded-xl p-4 border-l-4 border-royal-gold">
-                                            <p className="text-sm font-medium text-royal-slate mb-1">Outfit Suggestions:</p>
-                                            <p className="text-gray-600">{event.suggestions}</p>
+                                        <p className="text-base font-medium text-royal-gold mb-2">{event.theme}</p>
+                                        <p className="text-sm text-gray-700 mb-3">{event.description}</p>
+                                        <div className="bg-royal-blue/5 rounded-xl p-3 border-l-4 border-royal-gold">
+                                            <p className="text-xs font-medium text-royal-slate mb-1">Outfit Suggestions:</p>
+                                            <p className="text-xs text-gray-600">{event.suggestions}</p>
                                         </div>
                                     </div>
                                 </div>
