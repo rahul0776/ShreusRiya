@@ -51,7 +51,9 @@ const Home = () => {
             theme: 'Vibrant Hues in Semi-Traditional',
             colors: ['#ce006c', '#ef671d', '#fbaf03', '#f478af'],
             description: 'A vibrant celebration.',
-            image: haldiImg
+            image: haldiImg,
+            womensOutfit: 'Palazzo, Lehenga, Sharara',
+            mensOutfit: 'Kurta Pajamas, Nehru Jacket'
         },
         {
             name: 'Sangeet',
@@ -59,7 +61,9 @@ const Home = () => {
             theme: 'Glitz and Glam in Indo-Western',
             colors: ['#063f90', '#010101', '#D4AF37', '#C0C0C0'],
             description: 'An evening of music and dance.',
-            image: sangeetImg
+            image: sangeetImg,
+            womensOutfit: 'Western gowns, Cocktail Sarees',
+            mensOutfit: 'Indo Western Jackets, Jodhpuri'
         },
         {
             name: 'Wedding',
@@ -67,7 +71,9 @@ const Home = () => {
             theme: 'Indian Traditional in Hues of Pastel',
             colors: ['#d3e8fa', '#d3cbe3', '#fed3cf', '#c9dbba', '#fef8ba'],
             description: 'The main ceremony.',
-            image: weddingImg
+            image: weddingImg,
+            womensOutfit: 'Lehenga, Sarees',
+            mensOutfit: 'Sherwani, Jodhpuri'
         }
     ];
 
@@ -483,7 +489,7 @@ const Home = () => {
                         <p className="text-xl text-gray-600 max-w-2xl mx-auto">Dress codes and color themes for each celebration</p>
                     </motion.div>
 
-                    <div className="space-y-8 max-w-4xl mx-auto">
+                    <div className="space-y-12 max-w-5xl mx-auto">
                         {events.map((event, index) => (
                             <motion.div
                                 key={event.name}
@@ -493,23 +499,48 @@ const Home = () => {
                                 transition={{ duration: 0.8, delay: index * 0.1 }}
                                 className="bg-white rounded-3xl overflow-hidden shadow-xl border border-royal-gold/20 hover:shadow-2xl transition-shadow"
                             >
-                                <div className="flex flex-col md:flex-row">
-                                    <div className="md:w-1/4 p-3 bg-white flex items-center">
-                                        <img src={event.image} alt={event.name} className="w-full h-auto" />
+                                <div className="flex flex-col md:flex-row min-h-[320px]">
+                                    <div className="md:w-2/5 p-8 bg-royal-gold/5 flex items-center justify-center">
+                                        <img 
+                                            src={event.image} 
+                                            alt={event.name} 
+                                            className="w-full h-auto max-h-[400px] object-contain hover:scale-105 transition-transform duration-500" 
+                                        />
                                     </div>
-                                    <div className="md:w-3/4 p-6 bg-white flex flex-col justify-center">
-                                        <div className="flex items-center gap-2 mb-3">
-                                            <Sparkles className="w-5 h-5 text-royal-gold" />
-                                            <h3 className="text-2xl font-serif text-royal-slate">{event.name}</h3>
+                                    <div className="md:w-3/5 p-8 md:p-12 bg-white flex flex-col justify-center">
+                                        <div className="flex items-center gap-3 mb-2">
+                                            <Sparkles className="w-6 h-6 text-royal-gold" />
+                                            <h3 className="text-3xl md:text-4xl font-serif text-royal-slate">{event.name}</h3>
                                         </div>
-                                        <p className="text-xs text-gray-600 mb-3">{event.date}</p>
-                                        <div className="flex gap-2 mb-4">
-                                            {event.colors.map((color, i) => (
-                                                <div key={i} className="w-12 h-12 rounded-full shadow-md border-2 border-white" style={{ backgroundColor: color }} />
-                                            ))}
+                                        <p className="text-lg text-gray-500 mb-8 font-medium border-b border-gray-100 pb-4">{event.date}</p>
+                                        
+                                        <div className="space-y-8">
+                                            <div>
+                                                <p className="text-xs uppercase tracking-widest text-royal-gold mb-4 font-bold">Color Palette</p>
+                                                <div className="flex gap-4 flex-wrap">
+                                                    {event.colors.map((color, i) => (
+                                                        <div key={i} className="w-14 h-14 rounded-full shadow-lg border-4 border-white transform hover:-translate-y-1 transition-transform duration-300" style={{ backgroundColor: color }} />
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            
+                                            <div>
+                                                <p className="text-xs uppercase tracking-widest text-royal-gold mb-2 font-bold">Dress Code</p>
+                                                <p className="text-xl md:text-2xl font-serif text-royal-slate mb-2">{event.theme}</p>
+                                                <p className="text-gray-600 text-lg leading-relaxed mb-6">{event.description}</p>
+                                                
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-royal-gold/5 p-4 rounded-xl border border-royal-gold/10">
+                                                    <div>
+                                                        <p className="text-xs uppercase tracking-wider text-royal-slate mb-1 font-bold">Women</p>
+                                                        <p className="text-gray-700 font-medium">{event.womensOutfit}</p>
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-xs uppercase tracking-wider text-royal-slate mb-1 font-bold">Men</p>
+                                                        <p className="text-gray-700 font-medium">{event.mensOutfit}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <p className="text-base font-medium text-royal-gold mb-2">{event.theme}</p>
-                                        <p className="text-sm text-gray-700">{event.description}</p>
                                     </div>
                                 </div>
                             </motion.div>
