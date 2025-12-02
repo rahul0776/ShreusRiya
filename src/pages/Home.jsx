@@ -156,22 +156,168 @@ const Home = () => {
             <Countdown />
 
             {/* Itinerary Section */}
-            <section id="itinerary" className="py-24 bg-royal-sand relative sand-texture">
-                <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-4xl font-serif text-royal-slate mb-12">The Wedding Itinerary</h2>
-                    <div className="flex justify-center">
+            <section id="itinerary" className="py-24 bg-white relative">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-16"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-4 tracking-wide uppercase">Wedding Timeline</h2>
+                    </motion.div>
+
+                    <div className="max-w-4xl mx-auto">
+                        {/* Timeline Container */}
+                        <div className="relative">
+                            {/* Vertical Line */}
+                            <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-royal-gold/30"></div>
+
+                            {/* Day 1 - Saturday */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6 }}
+                                className="mb-12"
+                            >
+                                <div className="text-center mb-8">
+                                    <h3 className="text-2xl font-serif text-royal-slate mb-1">Saturday, 7th February 2026</h3>
+                                    <div className="w-16 h-0.5 bg-royal-gold mx-auto mt-2"></div>
+                                </div>
+
+                                {/* Events for Day 1 */}
+                                <div className="space-y-6">
+                                    {[
+                                        { time: '9:00 AM', title: 'Check In', desc: 'Welcome to our celebration' },
+                                        { time: '12:00 PM', title: 'Haldi Ceremony', desc: 'Traditional turmeric ceremony' },
+                                        { time: '1:00 PM', title: 'Lunch', desc: 'Multi-cuisine buffet' },
+                                        { time: '5:00 PM', title: 'High Tea', desc: 'Evening refreshments' },
+                                        { time: '7:00 PM', title: 'Sangeet', desc: 'Music, dance & performances' },
+                                        { time: '8:00 PM', title: 'Dinner', desc: 'Lavish dinner spread' }
+                                    ].map((event, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                            className={`flex items-center ${idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                                        >
+                                            <div className={`w-5/12 ${idx % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                                                <p className="text-lg font-semibold text-royal-slate">{event.time}</p>
+                                                <p className="text-sm text-gray-500">{event.desc}</p>
+                                            </div>
+                                            <div className="w-2/12 flex justify-center">
+                                                <div className="w-4 h-4 rounded-full bg-royal-gold border-4 border-white shadow-lg relative z-10"></div>
+                                            </div>
+                                            <div className={`w-5/12 ${idx % 2 === 0 ? 'text-left pl-8' : 'text-right pr-8'}`}>
+                                                <p className="text-xl font-serif text-royal-slate">{event.title}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
+
+                            {/* Day 2 - Sunday */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                                className="mb-12"
+                            >
+                                <div className="text-center mb-8 mt-12">
+                                    <h3 className="text-2xl font-serif text-royal-slate mb-1">Sunday, 8th February 2026</h3>
+                                    <div className="w-16 h-0.5 bg-royal-gold mx-auto mt-2"></div>
+                                </div>
+
+                                {/* Events for Day 2 */}
+                                <div className="space-y-6">
+                                    {[
+                                        { time: '8:00 AM', title: 'Breakfast', desc: 'Morning delights' },
+                                        { time: '12:00 PM', title: 'Lunch', desc: 'Special lunch for guests' },
+                                        { time: '2:00 PM', title: 'Baraat', desc: "Groom's grand procession" },
+                                        { time: '4:00 PM', title: 'Mahurat', desc: 'Wedding ceremony begins' },
+                                        { time: '5:00 PM', title: 'High Tea', desc: 'Evening refreshments' },
+                                        { time: '7:00 PM', title: 'Dinner & Reception', desc: 'Celebration under the stars' }
+                                    ].map((event, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                            className={`flex items-center ${idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                                        >
+                                            <div className={`w-5/12 ${idx % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                                                <p className="text-lg font-semibold text-royal-slate">{event.time}</p>
+                                                <p className="text-sm text-gray-500">{event.desc}</p>
+                                            </div>
+                                            <div className="w-2/12 flex justify-center">
+                                                <div className="w-4 h-4 rounded-full bg-royal-gold border-4 border-white shadow-lg relative z-10"></div>
+                                            </div>
+                                            <div className={`w-5/12 ${idx % 2 === 0 ? 'text-left pl-8' : 'text-right pr-8'}`}>
+                                                <p className="text-xl font-serif text-royal-slate">{event.title}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
+
+                            {/* Day 3 - Monday */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: 0.4 }}
+                                className="mb-8"
+                            >
+                                <div className="text-center mb-8 mt-12">
+                                    <h3 className="text-2xl font-serif text-royal-slate mb-1">Monday, 9th February 2026</h3>
+                                    <div className="w-16 h-0.5 bg-royal-gold mx-auto mt-2"></div>
+                                </div>
+
+                                {/* Events for Day 3 */}
+                                <div className="space-y-6">
+                                    {[
+                                        { time: '8:00 AM', title: 'Breakfast', desc: 'Final breakfast together' },
+                                        { time: '12:00 PM', title: 'Checkout', desc: 'Safe travels home' }
+                                    ].map((event, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
+                                            whileInView={{ opacity: 1, x: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                            className={`flex items-center ${idx % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+                                        >
+                                            <div className={`w-5/12 ${idx % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                                                <p className="text-lg font-semibold text-royal-slate">{event.time}</p>
+                                                <p className="text-sm text-gray-500">{event.desc}</p>
+                                            </div>
+                                            <div className="w-2/12 flex justify-center">
+                                                <div className="w-4 h-4 rounded-full bg-royal-gold border-4 border-white shadow-lg relative z-10"></div>
+                                            </div>
+                                            <div className={`w-5/12 ${idx % 2 === 0 ? 'text-left pl-8' : 'text-right pr-8'}`}>
+                                                <p className="text-xl font-serif text-royal-slate">{event.title}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        </div>
+
+                        {/* Bottom signature */}
                         <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                            className="relative max-w-4xl w-full"
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                            className="text-center mt-16"
                         >
-                            <img
-                                src={itineraryImg}
-                                alt="Wedding Itinerary"
-                                className="w-full h-auto rounded-xl shadow-2xl border-4 border-white/50"
-                            />
+                            <p className="text-2xl font-script text-royal-gold/80 italic">Riya & Shreus</p>
                         </motion.div>
                     </div>
                 </div>

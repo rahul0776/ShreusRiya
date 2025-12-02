@@ -47,7 +47,7 @@ const Navbar = () => {
                     <img
                         src={logoImg}
                         alt="S&R Logo"
-                        className={`transition-all duration-300 w-auto ${scrolled ? 'h-12 md:h-14 lg:h-16' : 'h-24 md:h-32 lg:h-40'}`}
+                        className={`transition-all duration-300 w-auto ${scrolled ? 'h-16 md:h-20 lg:h-24' : 'h-32 md:h-40 lg:h-48'}`}
                     />
                 </button>
 
