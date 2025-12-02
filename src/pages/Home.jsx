@@ -249,38 +249,37 @@ const Home = () => {
 
                                     {/* Back Side */}
                                     <div
-                                        className="absolute inset-0 backface-hidden bg-white rounded-2xl p-6 shadow-xl border border-royal-gold/30 overflow-y-auto"
+                                        className="absolute inset-0 backface-hidden bg-white rounded-2xl p-6 shadow-xl border border-royal-gold/30 overflow-hidden flex flex-col"
                                         style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                                     >
-                                        <h3 className="text-xl font-serif text-royal-slate mb-4 text-center sticky top-0 bg-white pb-2 border-b border-gray-100">{option.title} Schedule</h3>
-                                        <div className="overflow-x-auto">
-                                            <table className="w-full text-sm text-left">
-                                                <thead className="text-xs text-gray-500 uppercase bg-gray-50">
+                                        <h3 className="text-xl font-serif text-royal-slate mb-4 text-center border-b border-royal-gold/20 pb-2">{option.title} Schedule</h3>
+                                        <div className="overflow-x-auto flex-grow custom-scrollbar">
+                                            <table className="w-full text-xs text-left">
+                                                <thead className="text-xs text-royal-slate uppercase bg-royal-gold/10 sticky top-0">
                                                     <tr>
-                                                        <th className="px-2 py-2">{option.id === 'air' ? 'Airline' : 'Train'}</th>
-                                                        <th className="px-2 py-2">Dep</th>
-                                                        <th className="px-2 py-2">Arr</th>
-                                                        <th className="px-2 py-2">Date</th>
-                                                        <th className="px-2 py-2">Time</th>
+                                                        <th className="px-3 py-3 rounded-tl-lg">{option.id === 'air' ? 'Airline' : 'Train'}</th>
+                                                        <th className="px-3 py-3">From</th>
+                                                        <th className="px-3 py-3">To</th>
+                                                        <th className="px-3 py-3">Date</th>
+                                                        <th className="px-3 py-3">Dep</th>
+                                                        <th className="px-3 py-3 rounded-tr-lg">Arr</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody className="divide-y divide-gray-100">
                                                     {option.schedule.map((item, i) => (
-                                                        <tr key={i} className="border-b border-gray-100">
-                                                            <td className="px-2 py-2 font-medium text-royal-slate">{item.airline || item.name}</td>
-                                                            <td className="px-2 py-2 text-gray-600">{item.dep}</td>
-                                                            <td className="px-2 py-2 text-gray-600">{item.arr}</td>
-                                                            <td className="px-2 py-2 text-gray-600">{item.date}</td>
-                                                            <td className="px-2 py-2 text-gray-600">
-                                                                <div>D: {item.depTime}</div>
-                                                                <div>A: {item.arrTime}</div>
-                                                            </td>
+                                                        <tr key={i} className="hover:bg-gray-50 transition-colors">
+                                                            <td className="px-3 py-3 font-semibold text-royal-slate">{item.airline || item.name}</td>
+                                                            <td className="px-3 py-3 text-gray-600">{item.dep}</td>
+                                                            <td className="px-3 py-3 text-gray-600">{item.arr}</td>
+                                                            <td className="px-3 py-3 text-gray-600 whitespace-nowrap">{item.date}</td>
+                                                            <td className="px-3 py-3 text-royal-slate font-medium">{item.depTime}</td>
+                                                            <td className="px-3 py-3 text-royal-slate font-medium">{item.arrTime}</td>
                                                         </tr>
                                                     ))}
                                                 </tbody>
                                             </table>
                                         </div>
-                                        <p className="text-center text-xs text-gray-400 mt-4">Click to flip back</p>
+                                        <p className="text-center text-xs text-royal-gold mt-4 font-medium uppercase tracking-wider">Click to flip back</p>
                                     </div>
                                 </motion.div>
                             </div>
