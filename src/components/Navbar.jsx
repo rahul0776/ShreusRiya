@@ -56,7 +56,7 @@ const Navbar = () => {
         <nav
             className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-[#f3eee6] shadow-md py-2' : 'bg-transparent py-4'                }`}
         >
-            <div className="container mx-auto px-6 flex justify-between items-center relative">
+            <div className="container mx-auto px-6 flex justify-center md:justify-between items-center relative">
                 <button
                     onClick={() => handleNavigation(null)}
                     className="flex items-center hover:opacity-80 transition-opacity cursor-pointer"
@@ -84,7 +84,7 @@ const Navbar = () => {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="md:hidden text-royal-slate focus:outline-none z-50"
+                    className="md:hidden text-royal-slate focus:outline-none z-50 absolute right-6"
                     onClick={() => setIsOpen(!isOpen)}
                 >
                     {isOpen ? <X size={28} /> : <Menu size={28} />}
