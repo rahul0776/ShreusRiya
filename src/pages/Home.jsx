@@ -122,19 +122,6 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Wave Divider */}
-            <div className="relative h-32 overflow-hidden">
-                <svg className="absolute bottom-0 w-full h-32" preserveAspectRatio="none" viewBox="0 0 1200 120">
-                    <path d="M0 0 Q300 40 600 0 T1200 0 L1200 120 L0 120 Z" fill="#ffffff" opacity="0.9" />
-                    <path d="M0 20 Q300 50 600 20 T1200 20 L1200 120 L0 120 Z" fill="#A0C4FF" opacity="0.4">
-                        <animate attributeName="d" dur="5s" repeatCount="indefinite" values="M0 20 Q300 50 600 20 T1200 20 L1200 120 L0 120 Z;M0 30 Q300 10 600 30 T1200 30 L1200 120 L0 120 Z;M0 20 Q300 50 600 20 T1200 20 L1200 120 L0 120 Z" />
-                    </path>
-                    <path d="M0 40 Q300 70 600 40 T1200 40 L1200 120 L0 120 Z" fill="#FFC8DD" opacity="0.3">
-                        <animate attributeName="d" dur="7s" repeatCount="indefinite" values="M0 40 Q300 70 600 40 T1200 40 L1200 120 L0 120 Z;M0 50 Q300 30 600 50 T1200 50 L1200 120 L0 120 Z;M0 40 Q300 70 600 40 T1200 40 L1200 120 L0 120 Z" />
-                    </path>
-                </svg>
-            </div>
-
             {/* Countdown Section */}
             <Countdown />
 
