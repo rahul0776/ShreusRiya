@@ -212,7 +212,7 @@ const Home = () => {
                                         { time: '8:00 AM', title: 'Breakfast' },
                                         { time: '12:00 PM', title: 'Lunch' },
                                         { time: '2:00 PM', title: 'Baraat' },
-                                        { time: '4:00 PM', title: 'Mahurat' },
+                                        { time: '4:00 PM', title: 'Muhurat' },
                                         { time: '5:00 PM', title: 'High Tea' },
                                         { time: '7:00 PM', title: 'Dinner & Reception' }
                                     ].map((event, idx) => (
