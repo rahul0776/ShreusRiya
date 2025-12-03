@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Home from './pages/Home';
 import Travel from './pages/Travel';
 import Wardrobe from './pages/Wardrobe';
@@ -15,6 +16,7 @@ function App() {
           <Route path="/travel" element={<Travel />} />
           <Route path="/wardrobe" element={<Wardrobe />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

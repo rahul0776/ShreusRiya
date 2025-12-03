@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Plane, Train, Sparkles, User } from 'lucide-react';
 import Countdown from '../components/Countdown';
-import heroImg from '../media/homepage2.JPG';
+import heroImgDesktop from '../media/homepage2.JPG';
+import heroImgMobile from '../media/homepage1.JPG';
 import haldiImg from '../media/haldi.png';
 import sangeetImg from '../media/sangeet.png';
 import weddingImg from '../media/wedding.png';
@@ -85,13 +86,17 @@ const Home = () => {
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 2 }}
-                    className="absolute inset-0 z-0 bg-cover bg-no-repeat"
-                    style={{
-                        backgroundImage: `url(${heroImg})`,
-                        backgroundPosition: 'center',
-                        backgroundPositionX: 'calc(50% - 50px)'
-                    }}
-                />
+                    className="absolute inset-0 z-0"
+                >
+                    <picture>
+                        <source media="(min-width: 768px)" srcSet={heroImgDesktop} />
+                        <img 
+                            src={heroImgMobile} 
+                            alt="Riya & Shreus" 
+                            className="w-full h-full object-cover object-center"
+                        />
+                    </picture>
+                </motion.div>
 
                 {/* Content - Positioned at top */}
                 <div className="absolute top-20 left-0 right-0 z-20 text-center px-4">
@@ -99,7 +104,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.3 }}
-                        className="text-5xl md:text-7xl font-serif text-royal-slate mb-4"
+                        className="text-5xl md:text-7xl font-serif font-bold text-white mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
                     >
                         Riya & Shreus
                     </motion.h1>
@@ -109,7 +114,7 @@ const Home = () => {
                         transition={{ duration: 1, delay: 0.5 }}
                         className="flex flex-col items-center space-y-2"
                     >
-                        <div className="flex items-center space-x-2 text-base md:text-lg font-sans text-royal-slate">
+                        <div className="flex items-center space-x-2 text-base md:text-lg font-sans font-semibold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                             <Calendar className="w-4 h-4" />
                             <span>Feb 7-8, 2026</span>
                             <span className="w-1 h-1 bg-royal-slate rounded-full mx-2" />
