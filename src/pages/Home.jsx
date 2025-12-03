@@ -409,6 +409,17 @@ const Home = () => {
                         </div>
                     </motion.div>
 
+                    {/* Recommendations Heading */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-12"
+                    >
+                        <h3 className="text-3xl md:text-4xl font-serif text-royal-slate">Our Recommendations</h3>
+                    </motion.div>
+
                     {/* Transport Options Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                         {transportOptions.map((option, index) => (

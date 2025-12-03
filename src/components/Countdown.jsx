@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const Countdown = () => {
-    const weddingDate = new Date('2026-02-08T11:00:00+05:30'); // Feb 8, 2026, 11 AM IST
+    const weddingDate = new Date('2026-02-08T16:00:00+05:30'); // Feb 8, 2026, 4 PM IST
 
     const calculateTimeLeft = () => {
         const difference = weddingDate - new Date();
