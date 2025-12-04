@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Plane, Train, Sparkles, User } from 'lucide-react';
+import { Calendar, MapPin, Plane, Train, Bus, Sparkles, User } from 'lucide-react';
 import Countdown from '../components/Countdown';
 import heroImgDesktop from '../media/homepage2.JPG';
 import heroImgMobile from '../media/homepage1.JPG';
@@ -43,6 +43,19 @@ const Home = () => {
                 { name: 'Goa Express', dep: 'Pune', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '17:10', arrTime: '05:40' },
                 { name: 'Konkan Kanya Exp', dep: 'Mumbai CSMT', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '23:00', arrTime: '09:45' },
                 { name: 'Nzm Ers Sf Exp', dep: 'Panvel', arr: 'Madgaon (MAO)', date: '07/02/2026', depTime: '00:17', arrTime: '10:10' }
+            ]
+        },
+        {
+            id: 'bus',
+            icon: Bus,
+            title: 'By Bus',
+            description: 'Buses available from Andheri, Vashi, Pune to Madgaon bus station every hour.',
+            schedule: [
+                { operator: 'VRL Travels', dep: 'Mumbai', arr: 'Madgaon', date: 'Daily', depTime: '19:00', arrTime: '07:00' },
+                { operator: 'Paulo Travels', dep: 'Pune', arr: 'Madgaon', date: 'Daily', depTime: '20:00', arrTime: '06:30' },
+                { operator: 'Atmaram Travels', dep: 'Mumbai', arr: 'Madgaon', date: 'Daily', depTime: '18:30', arrTime: '06:00' },
+                { operator: 'Zingbus', dep: 'Pune', arr: 'Madgaon', date: 'Daily', depTime: '21:00', arrTime: '07:30' },
+                { operator: 'IntrCity SmartBus', dep: 'Mumbai', arr: 'Madgaon', date: 'Daily', depTime: '17:00', arrTime: '05:00' }
             ]
         }
     ];
@@ -92,9 +105,10 @@ const Home = () => {
                         <img 
                             src={heroImgMobile} 
                             alt="Shreus & Riya" 
-                            className="w-full h-full object-cover object-center"
+                            className="w-full h-full object-cover object-[75%_center] md:object-center"
                         />
                     </picture>
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/30 to-transparent h-[50vh]" />
                 </motion.div>
 
                 {/* Content - Positioned at top */}
@@ -103,7 +117,7 @@ const Home = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.3 }}
-                        className="text-5xl md:text-7xl font-serif font-bold text-white mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
+                        className="text-5xl md:text-7xl font-serif font-bold text-white mb-4 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
                     >
                         Shreus & Riya
                     </motion.h1>
@@ -113,16 +127,15 @@ const Home = () => {
                         transition={{ duration: 1, delay: 0.5 }}
                         className="flex flex-col items-center space-y-2"
                     >
-                        <div className="flex items-center space-x-2 text-base md:text-lg font-semibold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                        <div className="flex items-center space-x-2 text-base md:text-lg font-semibold text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                             <Calendar className="w-4 h-4" />
                             <span>Feb 7-8, 2026</span>
-                            <span className="w-1 h-1 bg-royal-slate rounded-full mx-2" />
+                            <span className="w-1 h-1 bg-white rounded-full mx-2" />
                             <MapPin className="w-4 h-4" />
                             <span className="hidden md:inline">Nanu Beach Resort & Spa Betalbatim</span>
                             <span className="md:hidden">Nanu Beach Resort</span>
                         </div>
                     </motion.div>
-
                 </div>
             </section>
 
@@ -375,9 +388,6 @@ const Home = () => {
                             <p className="text-lg">
                                 Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Shreus & Riya WEDDING"</span>. They will help you with transportation.
                             </p>
-                            <p className="text-lg">
-                                There will be transportation from the resort to the airport and station at periodic intervals.
-                            </p>
                         </div>
                     </motion.div>
 
@@ -400,6 +410,22 @@ const Home = () => {
                         </div>
                     </motion.div>
 
+                    {/* On Checkout */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="bg-white rounded-3xl p-8 md:p-12 shadow-xl mb-12 border border-royal-gold/20 text-center"
+                    >
+                        <h3 className="text-3xl font-serif text-royal-slate mb-6">On Checkout</h3>
+                        <div className="max-w-3xl mx-auto space-y-4 text-gray-700">
+                            <p className="text-lg">
+                                There will be transportation from the resort to the airport and station at periodic intervals.
+                            </p>
+                        </div>
+                    </motion.div>
+
                     {/* Recommendations Heading */}
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -412,7 +438,7 @@ const Home = () => {
                     </motion.div>
 
                     {/* Transport Options Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                         {transportOptions.map((option, index) => (
                             <div key={option.title} className="h-[400px] perspective-1000">
                                 <motion.div
@@ -446,23 +472,23 @@ const Home = () => {
                                             <table className="w-full text-xs text-left">
                                                 <thead className="text-xs text-royal-slate uppercase bg-royal-gold/10 sticky top-0">
                                                     <tr>
-                                                        <th className="px-3 py-3 rounded-tl-lg">{option.id === 'air' ? 'Airline' : 'Train'}</th>
-                                                        <th className="px-3 py-3">From</th>
+                                                        <th className="px-3 py-3 rounded-tl-lg">From</th>
                                                         <th className="px-3 py-3">To</th>
                                                         <th className="px-3 py-3">Date</th>
                                                         <th className="px-3 py-3">Dep</th>
-                                                        <th className="px-3 py-3 rounded-tr-lg">Arr</th>
+                                                        <th className="px-3 py-3">Arr</th>
+                                                        <th className="px-3 py-3 rounded-tr-lg">{option.id === 'air' ? 'Airline' : (option.id === 'bus' ? 'Operator' : 'Train')}</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody className="divide-y divide-gray-100">
                                                     {option.schedule.map((item, i) => (
                                                         <tr key={i} className="hover:bg-gray-50 transition-colors">
-                                                            <td className="px-3 py-3 font-semibold text-royal-slate">{item.airline || item.name}</td>
                                                             <td className="px-3 py-3 text-gray-600">{item.dep}</td>
                                                             <td className="px-3 py-3 text-gray-600">{item.arr}</td>
                                                             <td className="px-3 py-3 text-gray-600 whitespace-nowrap">{item.date}</td>
                                                             <td className="px-3 py-3 text-royal-slate font-medium">{item.depTime}</td>
                                                             <td className="px-3 py-3 text-royal-slate font-medium">{item.arrTime}</td>
+                                                            <td className="px-3 py-3 font-semibold text-royal-slate">{item.airline || item.name || item.operator}</td>
                                                         </tr>
                                                     ))}
                                                 </tbody>
