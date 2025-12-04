@@ -9,7 +9,7 @@ import Wardrobe from './pages/Wardrobe';
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-royal-sand text-royal-slate font-sans selection:bg-royal-gold selection:text-white">
+      <div className="min-h-screen bg-royal-sand text-royal-slate font-serif selection:bg-royal-gold selection:text-white">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

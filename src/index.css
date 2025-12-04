@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply text-royal-slate font-sans antialiased overflow-x-hidden;
+    @apply text-royal-slate font-serif antialiased overflow-x-hidden;
     background-color: #f3eee6;
   }
 

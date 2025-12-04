@@ -39,7 +39,7 @@ const RotatingCard = ({ cards }) => {
                     />
                     <div className="p-6 text-center">
                         <h3 className="text-2xl font-serif text-royal-slate mb-2">{cards[currentIndex].title}</h3>
-                        <p className="text-gray-600 font-sans">{cards[currentIndex].description}</p>
+                        <p className="text-gray-600 font-serif">{cards[currentIndex].description}</p>
                     </div>
                 </motion.div>
             </AnimatePresence>

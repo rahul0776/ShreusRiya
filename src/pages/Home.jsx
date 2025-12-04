@@ -24,11 +24,12 @@ const Home = () => {
             icon: Plane,
             title: 'By Air',
             description: 'Fly into Goa International Airport (Dabolim) or Manohar International Airport (MOPA)',
-            details: 'The airport is approximately 30 km from the venue.',
             schedule: [
                 { airline: 'Indigo', dep: 'Mumbai(BOM)', arr: 'Goa(Dabolim)', date: '07/02/2026', depTime: '04:20', arrTime: '05:30' },
                 { airline: 'Air India', dep: 'Mumbai(BOM)', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '05:10', arrTime: '06:20' },
-                { airline: 'Indigo', dep: 'Navi Mumbai(NMI)', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '12:45', arrTime: '13:45' }
+                { airline: 'Indigo', dep: 'Navi Mumbai(NMI)', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '12:45', arrTime: '13:45' },
+                { airline: 'Air India Express', dep: 'Mumbai(BOM)', arr: 'Goa(Dabolim)', date: '07/02/2026', depTime: '08:15', arrTime: '09:35' },
+                { airline: 'Indigo', dep: 'Pune', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '05:20', arrTime: '06:20' }
             ]
         },
         {
@@ -36,11 +37,12 @@ const Home = () => {
             icon: Train,
             title: 'By Train',
             description: 'Arrive at Madgaon Railway Station',
-            details: 'Madgaon is the main railway station in South Goa, well-connected to major cities.',
             schedule: [
                 { name: 'Nzm Mao Rajdani', dep: 'Panvel', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '22:57', arrTime: '07:30' },
                 { name: 'Mangaluru Exp', dep: 'Mumbai CSMT', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '21:54', arrTime: '07:30' },
-                { name: 'Goa Express', dep: 'Pune', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '17:10', arrTime: '05:40' }
+                { name: 'Goa Express', dep: 'Pune', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '17:10', arrTime: '05:40' },
+                { name: 'Konkan Kanya Exp', dep: 'Mumbai CSMT', arr: 'Madgaon (MAO)', date: '06/02/2026', depTime: '23:00', arrTime: '09:45' },
+                { name: 'Nzm Ers Sf Exp', dep: 'Panvel', arr: 'Madgaon (MAO)', date: '07/02/2026', depTime: '00:17', arrTime: '10:10' }
             ]
         }
     ];
@@ -51,7 +53,6 @@ const Home = () => {
             date: 'February 7, 2026',
             theme: 'Vibrant Hues in Semi-Traditional',
             colors: ['#ce006c', '#ef671d', '#fbaf03', '#f478af'],
-            description: 'A vibrant celebration.',
             image: haldiImg,
             womensOutfit: 'Palazzo, Lehenga, Sharara',
             mensOutfit: 'Kurta Pajamas, Nehru Jacket'
@@ -61,7 +62,6 @@ const Home = () => {
             date: 'February 7, 2026',
             theme: 'Glitz and Glam in Indo-Western',
             colors: ['#063f90', '#010101', '#D4AF37', '#C0C0C0'],
-            description: 'An evening of music and dance.',
             image: sangeetImg,
             womensOutfit: 'Western gowns, Cocktail Sarees',
             mensOutfit: 'Indo Western Jackets, Jodhpuri'
@@ -71,7 +71,6 @@ const Home = () => {
             date: 'February 8, 2026',
             theme: 'Indian Traditional in Hues of Pastel',
             colors: ['#d3e8fa', '#d3cbe3', '#fed3cf', '#c9dbba', '#fef8ba'],
-            description: 'The main ceremony.',
             image: weddingImg,
             womensOutfit: 'Lehenga, Sarees',
             mensOutfit: 'Sherwani, Jodhpuri'
@@ -92,7 +91,7 @@ const Home = () => {
                         <source media="(min-width: 768px)" srcSet={heroImgDesktop} />
                         <img 
                             src={heroImgMobile} 
-                            alt="Riya & Shreus" 
+                            alt="Shreus & Riya" 
                             className="w-full h-full object-cover object-center"
                         />
                     </picture>
@@ -106,7 +105,7 @@ const Home = () => {
                         transition={{ duration: 1, delay: 0.3 }}
                         className="text-5xl md:text-7xl font-serif font-bold text-white mb-4 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
                     >
-                        Riya & Shreus
+                        Shreus & Riya
                     </motion.h1>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -114,7 +113,7 @@ const Home = () => {
                         transition={{ duration: 1, delay: 0.5 }}
                         className="flex flex-col items-center space-y-2"
                     >
-                        <div className="flex items-center space-x-2 text-base md:text-lg font-sans font-semibold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                        <div className="flex items-center space-x-2 text-base md:text-lg font-semibold text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                             <Calendar className="w-4 h-4" />
                             <span>Feb 7-8, 2026</span>
                             <span className="w-1 h-1 bg-royal-slate rounded-full mx-2" />
@@ -131,7 +130,7 @@ const Home = () => {
             <Countdown />
 
             {/* Itinerary Section */}
-            <section id="itinerary" className="py-24 bg-white relative">
+            <section id="itinerary" className="py-24 bg-royal-sand relative">
                 <div className="container mx-auto px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -140,12 +139,12 @@ const Home = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-16"
                     >
-                        <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-4 tracking-wide uppercase">Wedding Timeline</h2>
+                        <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-4 tracking-wide uppercase">Wedding Itinerary</h2>
                     </motion.div>
 
                     <div className="max-w-4xl mx-auto">
                         {/* Timeline Container */}
-                        <div className="relative">
+                        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-royal-gold/20 relative">
                             
                             {/* Day 1 - Saturday */}
                             <motion.div
@@ -168,7 +167,7 @@ const Home = () => {
                                     {[
                                         { time: '9:00 AM', title: 'Check In' },
                                         { time: '12:00 PM', title: 'Haldi Ceremony' },
-                                        { time: '1:00 PM', title: 'Lunch' },
+                                        { time: '2:00 PM', title: 'Lunch' },
                                         { time: '5:00 PM', title: 'High Tea' },
                                         { time: '7:00 PM', title: 'Sangeet' },
                                         { time: '8:00 PM', title: 'Dinner' }
@@ -217,7 +216,7 @@ const Home = () => {
                                         { time: '8:00 AM', title: 'Breakfast' },
                                         { time: '12:00 PM', title: 'Lunch' },
                                         { time: '2:00 PM', title: 'Baraat' },
-                                        { time: '4:00 PM', title: 'Muhurat' },
+                                        { time: '4:20 PM', title: 'Muhurat' },
                                         { time: '5:00 PM', title: 'High Tea' },
                                         { time: '7:00 PM', title: 'Dinner & Reception' }
                                     ].map((event, idx) => (
@@ -350,7 +349,7 @@ const Home = () => {
                             <div className="bg-white p-6 rounded-2xl shadow-md border border-royal-gold/20">
                                 <h4 className="text-xl font-serif mb-2">CHECK-IN</h4>
                                 <p className="text-lg font-medium">Saturday, 07th February</p>
-                                <p className="text-royal-gold font-bold">10:00 AM</p>
+                                <p className="text-royal-gold font-bold">9:00 AM Morning</p>
                             </div>
                             <div className="bg-white p-6 rounded-2xl shadow-md border border-royal-gold/20">
                                 <h4 className="text-xl font-serif mb-2">CHECK-OUT</h4>
@@ -374,7 +373,7 @@ const Home = () => {
                                 The Nanu Beach Resort & Spa is about <span className="font-semibold text-royal-slate">40 minutes</span> away from the Goa Dabolim International Airport and is <span className="font-semibold text-royal-slate">1.15 hours</span> away from Manohar International Airport (MOPA), Goa.
                             </p>
                             <p className="text-lg">
-                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Riya & Shreus WEDDING"</span>. They will help you with transportation.
+                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Shreus & Riya WEDDING"</span>. They will help you with transportation.
                             </p>
                             <p className="text-lg">
                                 There will be transportation from the resort to the airport and station at periodic intervals.
@@ -396,7 +395,7 @@ const Home = () => {
                                 The Nanu Beach Resort & Spa is about <span className="font-semibold text-royal-slate">20 minutes</span> away from the Madgaon Railway Station.
                             </p>
                             <p className="text-lg">
-                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Riya & Shreus WEDDING"</span>. They will help you with transportation.
+                                Please look out for a representative with a sign <span className="font-semibold text-royal-gold">"Shreus & Riya WEDDING"</span>. They will help you with transportation.
                             </p>
                         </div>
                     </motion.div>
@@ -434,7 +433,7 @@ const Home = () => {
                                         <h3 className="text-3xl font-serif text-royal-slate mb-4">{option.title}</h3>
                                         <p className="text-lg font-medium text-gray-700 mb-4">{option.description}</p>
                                         <p className="text-gray-600 mb-6">{option.details}</p>
-                                        <p className="text-royal-gold font-medium text-sm uppercase tracking-wider mt-auto">Click to know more</p>
+                                        <p className="text-royal-gold font-medium text-sm uppercase tracking-wider mt-auto">Click for our recommendations</p>
                                     </div>
 
                                     {/* Back Side */}
@@ -520,9 +519,9 @@ const Home = () => {
                                         <div className="space-y-8">
                                             <div>
                                                 <p className="text-xs uppercase tracking-widest text-royal-gold mb-4 font-bold">Color Palette</p>
-                                                <div className="flex gap-4 flex-wrap">
+                                                <div className="flex gap-4 flex-wrap justify-center md:justify-start">
                                                     {event.colors.map((color, i) => (
-                                                        <div key={i} className="w-14 h-14 rounded-full shadow-lg border-4 border-white transform hover:-translate-y-1 transition-transform duration-300" style={{ backgroundColor: color }} />
+                                                        <div key={i} className="w-12 h-12 md:w-14 md:h-14 rounded-full shadow-lg border-4 border-white transform hover:-translate-y-1 transition-transform duration-300" style={{ backgroundColor: color }} />
                                                     ))}
                                                 </div>
                                             </div>
@@ -562,8 +561,7 @@ const Home = () => {
                         transition={{ duration: 0.8 }}
                         className="text-center mb-12"
                     >
-                        <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-4">Contact Us</h2>
-                        <p className="text-xl text-gray-600">Need more information? We're here to help!</p>
+                        <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-4">Contact the hosts for any more information</h2>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
