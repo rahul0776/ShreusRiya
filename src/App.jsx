@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Preloader from './components/Preloader';
 import Home from './pages/Home';
 import Travel from './pages/Travel';
 import Wardrobe from './pages/Wardrobe';
@@ -10,6 +11,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-royal-sand text-royal-slate font-serif selection:bg-royal-gold selection:text-white">
+        <Preloader />
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
