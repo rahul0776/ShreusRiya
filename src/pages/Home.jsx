@@ -27,8 +27,8 @@ const Home = () => {
             schedule: [
                 { airline: 'Indigo', dep: 'Mumbai(BOM)', arr: 'Goa(Dabolim)', date: '07/02/2026', depTime: '04:20', arrTime: '05:30' },
                 { airline: 'Air India', dep: 'Mumbai(BOM)', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '05:10', arrTime: '06:20' },
-                { airline: 'Indigo', dep: 'Navi Mumbai(NMI)', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '12:45', arrTime: '13:45' },
                 { airline: 'Air India Express', dep: 'Mumbai(BOM)', arr: 'Goa(Dabolim)', date: '07/02/2026', depTime: '08:15', arrTime: '09:35' },
+                { airline: 'Indigo', dep: 'Navi Mumbai(NMI)', arr: 'Goa(MOPA)', date: '06/02/2026', depTime: '16:00', arrTime: '17:05' },
                 { airline: 'Indigo', dep: 'Pune', arr: 'Goa(MOPA)', date: '07/02/2026', depTime: '05:20', arrTime: '06:20' }
             ]
         },
@@ -67,17 +67,17 @@ const Home = () => {
             theme: 'Vibrant Hues in Semi-Traditional',
             colors: ['#ce006c', '#ef671d', '#fbaf03', '#f478af'],
             image: haldiImg,
-            womensOutfit: 'Palazzo, Lehenga, Sharara',
+            womensOutfit: 'Palazzo, Lehenga, Sharara, Sarees',
             mensOutfit: 'Kurta Pajamas, Nehru Jacket'
         },
         {
             name: 'Sangeet',
             date: 'February 7, 2026',
             theme: 'Glitz and Glam in Indo-Western',
-            colors: ['#063f90', '#010101', '#D4AF37', '#C0C0C0'],
+            colors: ['#063f90', '#010101', '#D4AF37', '#C0C0C0', '#b82424ff'],
             image: sangeetImg,
-            womensOutfit: 'Western gowns, Cocktail Sarees',
-            mensOutfit: 'Indo Western Jackets, Jodhpuri'
+            womensOutfit: 'Indo-Western gowns, Cocktail Sarees',
+            mensOutfit: 'Indo Western Jackets, Jodhpuri, Kurta'
         },
         {
             name: 'Wedding',
@@ -86,7 +86,7 @@ const Home = () => {
             colors: ['#d3e8fa', '#d3cbe3', '#fed3cf', '#c9dbba', '#fef8ba'],
             image: weddingImg,
             womensOutfit: 'Lehenga, Sarees',
-            mensOutfit: 'Sherwani, Jodhpuri'
+            mensOutfit: 'Sherwani, Jodhpuri, Kurta, Nehru Jacket'
         }
     ];
 
@@ -102,9 +102,9 @@ const Home = () => {
                 >
                     <picture>
                         <source media="(min-width: 768px)" srcSet={heroImgDesktop} />
-                        <img 
-                            src={heroImgMobile} 
-                            alt="Shreus & Riya" 
+                        <img
+                            src={heroImgMobile}
+                            alt="Shreus & Riya"
                             className="w-full h-full object-cover object-[75%_center] md:object-center"
                         />
                     </picture>
@@ -158,7 +158,7 @@ const Home = () => {
                     <div className="max-w-4xl mx-auto">
                         {/* Timeline Container */}
                         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-royal-gold/20 relative">
-                            
+
                             {/* Day 1 - Saturday */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -176,7 +176,7 @@ const Home = () => {
                                 <div className="relative space-y-6">
                                     {/* Day Line */}
                                     <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-royal-gold/30"></div>
-                                    
+
                                     {[
                                         { time: '9:00 AM', title: 'Check In' },
                                         { time: '12:00 PM', title: 'Haldi Ceremony' },
@@ -529,10 +529,10 @@ const Home = () => {
                             >
                                 <div className="flex flex-col md:flex-row min-h-[320px]">
                                     <div className="md:w-2/5 p-8 bg-royal-gold/5 flex items-center justify-center">
-                                        <img 
-                                            src={event.image} 
-                                            alt={event.name} 
-                                            className="w-full h-auto max-h-[400px] object-contain hover:scale-105 transition-transform duration-500" 
+                                        <img
+                                            src={event.image}
+                                            alt={event.name}
+                                            className="w-full h-auto max-h-[400px] object-contain hover:scale-105 transition-transform duration-500"
                                         />
                                     </div>
                                     <div className="md:w-3/5 p-8 md:p-12 bg-white flex flex-col justify-center">
@@ -541,7 +541,7 @@ const Home = () => {
                                             <h3 className="text-3xl md:text-4xl font-serif text-royal-slate">{event.name}</h3>
                                         </div>
                                         <p className="text-lg text-gray-500 mb-8 font-medium border-b border-gray-100 pb-4">{event.date}</p>
-                                        
+
                                         <div className="space-y-8">
                                             <div>
                                                 <p className="text-xs uppercase tracking-widest text-royal-gold mb-4 font-bold">Color Palette</p>
@@ -551,12 +551,12 @@ const Home = () => {
                                                     ))}
                                                 </div>
                                             </div>
-                                            
+
                                             <div>
                                                 <p className="text-xs uppercase tracking-widest text-royal-gold mb-2 font-bold">Dress Code</p>
                                                 <p className="text-xl md:text-2xl font-serif text-royal-slate mb-2">{event.theme}</p>
                                                 <p className="text-gray-600 text-lg leading-relaxed mb-6">{event.description}</p>
-                                                
+
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-royal-gold/5 p-4 rounded-xl border border-royal-gold/10">
                                                     <div>
                                                         <p className="text-xs uppercase tracking-wider text-royal-slate mb-1 font-bold">Women</p>

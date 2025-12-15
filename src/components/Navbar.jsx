@@ -20,7 +20,7 @@ const Navbar = () => {
 
     const handleNavigation = (sectionId) => {
         setIsOpen(false);
-        
+
         if (location.pathname !== '/') {
             navigate('/');
             // Wait for navigation to complete before scrolling
@@ -54,7 +54,7 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-[#f3eee6] shadow-md py-2' : 'bg-transparent py-4'                }`}
+            className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled || isOpen ? 'bg-[#f3eee6] shadow-md py-2' : 'bg-transparent py-4'}`}
         >
             <div className="container mx-auto px-6 flex justify-center md:justify-between items-center relative">
                 <button
@@ -113,8 +113,8 @@ const Navbar = () => {
                                     {link.name}
                                 </motion.button>
                             ))}
-                            
-                            <motion.div 
+
+                            <motion.div
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.3 }}
