@@ -629,6 +629,33 @@ const Home = () => {
                     </div>
                 </div>
             </section >
+
+            {/* RSVP Section */}
+            <section className="py-20 bg-royal-sand relative overflow-hidden">
+                <div className="container mx-auto px-6 text-center relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h2 className="text-4xl md:text-5xl font-serif text-royal-slate mb-6">RSVP</h2>
+                        <p className="text-xl md:text-2xl font-serif text-gray-600 mb-8 max-w-2xl mx-auto">
+                            We look forward to celebrating our big day with you!
+                        </p>
+                        <motion.a
+                            href="https://forms.gle/n13ELECCFw2EWUJm7"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="inline-block px-12 py-4 bg-royal-gold text-white text-xl font-serif rounded-full shadow-lg hover:shadow-xl hover:bg-opacity-90 transition-all"
+                        >
+                            RSVP Here
+                        </motion.a>
+                    </motion.div>
+                </div>
+            </section>
         </div >
     );
 };

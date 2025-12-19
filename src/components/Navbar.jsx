@@ -79,7 +79,14 @@ const Navbar = () => {
                             {link.name}
                         </button>
                     ))}
-
+                    <a
+                        href="https://forms.gle/n13ELECCFw2EWUJm7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-2 bg-royal-gold text-white rounded-full font-serif hover:bg-opacity-90 transition-all shadow-md hover:shadow-lg flex items-center"
+                    >
+                        RSVP
+                    </a>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -113,6 +120,18 @@ const Navbar = () => {
                                     {link.name}
                                 </motion.button>
                             ))}
+                            <motion.a
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                href="https://forms.gle/n13ELECCFw2EWUJm7"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-3xl font-serif text-white bg-royal-gold px-8 py-2 rounded-full hover:bg-opacity-90 transition-all shadow-lg"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                RSVP
+                            </motion.a>
 
                             <motion.div
                                 initial={{ opacity: 0 }}
