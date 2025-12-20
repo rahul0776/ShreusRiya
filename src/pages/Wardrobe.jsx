@@ -67,8 +67,8 @@ const Wardrobe = () => {
                         >
                             {/* Image Section - Full Width at Top */}
                             <div className="w-full">
-                                <img 
-                                    src={event.image} 
+                                <img
+                                    src={event.image}
                                     alt={event.name}
                                     className="w-full h-auto"
                                 />

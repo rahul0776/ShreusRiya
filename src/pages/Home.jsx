@@ -136,6 +136,21 @@ const Home = () => {
                             <span className="md:hidden">Nanu Beach Resort</span>
                         </div>
                     </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.7 }}
+                        className="mt-8 flex md:hidden flex-col items-center gap-3"
+                    >
+
+                        <button
+                            onClick={() => document.getElementById('rsvp')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="px-8 py-2 bg-royal-gold hover:bg-royal-gold/90 text-white rounded-full font-serif text-lg transition-all shadow-lg hover:scale-105"
+                        >
+                            Confirm Presence
+                        </button>
+                    </motion.div>
                 </div>
             </section>
 
@@ -631,7 +646,7 @@ const Home = () => {
             </section >
 
             {/* RSVP Section */}
-            <section className="py-20 bg-royal-sand relative overflow-hidden">
+            <section id="rsvp" className="py-20 bg-royal-sand relative overflow-hidden">
                 <div className="container mx-auto px-6 text-center relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -651,7 +666,7 @@ const Home = () => {
                             whileTap={{ scale: 0.95 }}
                             className="inline-block px-12 py-4 bg-royal-gold text-white text-xl font-serif rounded-full shadow-lg hover:shadow-xl hover:bg-opacity-90 transition-all"
                         >
-                            RSVP Here
+                            Confirm Presence
                         </motion.a>
                     </motion.div>
                 </div>
